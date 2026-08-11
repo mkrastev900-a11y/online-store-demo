@@ -1,0 +1,468 @@
+:root {
+  --wine-950: var(--brand-primary);
+  --wine-900: var(--brand-primary);
+  --wine-800: var(--brand-primary);
+  --wine-700: var(--brand-primary);
+  --gold-500: #cda64d;
+  --gold-300: #ead28f;
+  --ink: #21161b;
+  --muted: #7b6d73;
+  --cream: #fbf7f2;
+  --paper: #fffdf9;
+  --line: rgba(70, 29, 47, 0.13);
+  --shadow-soft: 0 18px 50px rgba(63, 12, 34, 0.08);
+  --shadow-card: 0 28px 70px rgba(56, 14, 31, 0.12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+body {
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(205,166,77,.08), transparent 25%),
+    var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+img { max-width: 100%; }
+a { color: inherit; }
+::selection { background: #711139; color: #fff7e6; }
+
+.site-shell {
+  width: min(1420px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+@media (max-width: 760px) {
+  .site-shell { width: min(100% - 28px, 1420px); }
+}
+
+/* v18 Mobile Warehouse & Stocktakes */
+
+/* v23 Light / Dark appearance */
+html[data-theme="dark"] {
+  --ink: #f2e9ed;
+  --muted: #b9a9b0;
+  --cream: #11131a;
+  --paper: #191c25;
+  --line: rgba(241, 209, 123, .14);
+  --shadow-soft: 0 18px 50px rgba(0, 0, 0, .24);
+  --shadow-card: 0 28px 70px rgba(0, 0, 0, .36);
+}
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(116, 18, 58, .22), transparent 28%),
+    #11131a;
+  color: #f2e9ed;
+}
+html[data-theme="dark"] body main,
+html[data-theme="dark"] body section,
+html[data-theme="dark"] body article,
+html[data-theme="dark"] body form,
+html[data-theme="dark"] body aside,
+html[data-theme="dark"] body dialog,
+html[data-theme="dark"] body table,
+html[data-theme="dark"] body [class*="card" i],
+html[data-theme="dark"] body [class*="panel" i],
+html[data-theme="dark"] body [class*="content" i] {
+  border-color: rgba(241, 209, 123, .13);
+}
+html[data-theme="dark"] body input,
+html[data-theme="dark"] body textarea,
+html[data-theme="dark"] body select {
+  background: #171a23;
+  color: #f5edf0;
+  border-color: rgba(241, 209, 123, .18);
+}
+html[data-theme="dark"] body input::placeholder,
+html[data-theme="dark"] body textarea::placeholder { color: #887982; }
+html[data-theme="dark"] body table,
+html[data-theme="dark"] body th,
+html[data-theme="dark"] body td { border-color: rgba(241, 209, 123, .11); }
+html[data-theme="dark"] body [style*="background:#fbf7f0"],
+html[data-theme="dark"] body [style*="background: #fbf7f0"] { background: #151821 !important; }
+html[data-theme="dark"] body [style*="color:#3c101d"],
+html[data-theme="dark"] body [style*="color: #3c101d"] { color: #f2e9ed !important; }
+html[data-theme="dark"] body [style*="color:#6d5a60"],
+html[data-theme="dark"] body [style*="color: #6d5a60"] { color: #b9a9b0 !important; }
+html[data-theme="dark"] .scanner-card,
+html[data-theme="dark"] .stocktake-items,
+html[data-theme="dark"] .stocktake-stats article {
+  background: #191c25;
+  color: #f2e9ed;
+  border-color: rgba(241, 209, 123, .13);
+}
+html[data-theme="dark"] .stocktakeRow span,
+html[data-theme="dark"] .stocktake-items article span { color: #b9a9b0; }
+html[data-theme="dark"] .stocktake-items article.has-difference,
+html[data-theme="dark"] .stocktake-message { background: #2b2618; }
+
+:root {
+  color-scheme: light;
+  --theme-bg: #fbf7f2;
+  --theme-bg-alt: #f6efe8;
+  --theme-surface: #fffdf9;
+  --theme-surface-2: #ffffff;
+  --theme-surface-3: #f7eff2;
+  --theme-text: #21161b;
+  --theme-text-soft: #65545a;
+  --theme-text-muted: #806b74;
+  --theme-border: rgba(70, 29, 47, .13);
+  --theme-border-strong: rgba(70, 29, 47, .22);
+  --theme-input: #ffffff;
+  --theme-overlay: rgba(24, 6, 14, .42);
+  --theme-row-hover: #fbf4f6;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-bg: #0d1119;
+  --theme-bg-alt: #111722;
+  --theme-surface: #151c27;
+  --theme-surface-2: #192230;
+  --theme-surface-3: #202a38;
+  --theme-text: #f6f0f2;
+  --theme-text-soft: #d3c7cc;
+  --theme-text-muted: #a89ba2;
+  --theme-border: rgba(234, 210, 143, .14);
+  --theme-border-strong: rgba(234, 210, 143, .24);
+  --theme-input: #111823;
+  --theme-overlay: rgba(0, 0, 0, .72);
+  --theme-row-hover: #202938;
+}
+
+/* Every primary application surface follows the active theme. */
+html[data-theme="dark"] body,
+html[data-theme="dark"] #__next,
+html[data-theme="dark"] [class*="main" i],
+html[data-theme="dark"] [class*="page" i],
+html[data-theme="dark"] [class*="layout" i] {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+/* Reusable light surfaces in all CSS modules. background-color preserves hero/product images. */
+html[data-theme="dark"] [class*="card" i],
+html[data-theme="dark"] [class*="panel" i],
+html[data-theme="dark"] [class*="box" i],
+html[data-theme="dark"] [class*="sheet" i],
+html[data-theme="dark"] [class*="preview" i],
+html[data-theme="dark"] [class*="register" i],
+html[data-theme="dark"] [class*="empty" i],
+html[data-theme="dark"] [class*="summary" i],
+html[data-theme="dark"] [class*="details" i],
+html[data-theme="dark"] [class*="modal" i],
+html[data-theme="dark"] [class*="drawer" i],
+html[data-theme="dark"] [class*="dropdown" i],
+html[data-theme="dark"] [class*="popover" i],
+html[data-theme="dark"] [class*="form" i],
+html[data-theme="dark"] [class*="tableWrap" i],
+html[data-theme="dark"] [class*="list" i] > article,
+html[data-theme="dark"] [class*="grid" i] > article {
+  background-color: var(--theme-surface) !important;
+  color: var(--theme-text);
+  border-color: var(--theme-border) !important;
+}
+
+html[data-theme="dark"] table,
+html[data-theme="dark"] thead,
+html[data-theme="dark"] tbody,
+html[data-theme="dark"] tr,
+html[data-theme="dark"] th,
+html[data-theme="dark"] td {
+  background-color: transparent;
+  color: var(--theme-text);
+  border-color: var(--theme-border) !important;
+}
+html[data-theme="dark"] tbody tr:hover { background-color: var(--theme-row-hover); }
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] label,
+html[data-theme="dark"] legend,
+html[data-theme="dark"] strong { color: var(--theme-text); }
+html[data-theme="dark"] p,
+html[data-theme="dark"] small,
+html[data-theme="dark"] [class*="muted" i],
+html[data-theme="dark"] [class*="hint" i],
+html[data-theme="dark"] [class*="description" i],
+html[data-theme="dark"] [class*="subtitle" i] { color: var(--theme-text-muted); }
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select,
+html[data-theme="dark"] option {
+  background-color: var(--theme-input) !important;
+  color: var(--theme-text) !important;
+  border-color: var(--theme-border-strong) !important;
+}
+html[data-theme="dark"] input:disabled,
+html[data-theme="dark"] textarea:disabled,
+html[data-theme="dark"] select:disabled { opacity: .62; }
+
+/* Storefront sections that previously stayed white. */
+html[data-theme="dark"] [class*="benefits" i],
+html[data-theme="dark"] [class*="categories" i],
+html[data-theme="dark"] [class*="products" i],
+html[data-theme="dark"] [class*="newsletter" i],
+html[data-theme="dark"] [class*="recommend" i],
+html[data-theme="dark"] [class*="collections" i],
+html[data-theme="dark"] [class*="account" i],
+html[data-theme="dark"] [class*="checkout" i],
+html[data-theme="dark"] [class*="cart" i],
+html[data-theme="dark"] [class*="favorites" i],
+html[data-theme="dark"] [class*="history" i] {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text);
+  border-color: var(--theme-border) !important;
+}
+
+html[data-theme="dark"] [class*="docPreview" i],
+html[data-theme="dark"] [class*="invoice" i][class*="preview" i] {
+  background: #fffdf9 !important;
+  color: #21161b !important;
+}
+html[data-theme="dark"] [class*="docPreview" i] * { color: inherit; }
+
+/* Status colors remain meaningful while their surfaces are readable in dark mode. */
+html[data-theme="dark"] [class*="success" i] { --status-surface: #13291f; }
+html[data-theme="dark"] [class*="warning" i] { --status-surface: #302715; }
+html[data-theme="dark"] [class*="danger" i],
+html[data-theme="dark"] [class*="error" i] { --status-surface: #321820; }
+
+/* Remove legacy white blocks caused by hardcoded inline styles. */
+html[data-theme="dark"] [style*="background: white" i],
+html[data-theme="dark"] [style*="background:white" i],
+html[data-theme="dark"] [style*="background: #fff" i],
+html[data-theme="dark"] [style*="background:#fff" i],
+html[data-theme="dark"] [style*="background-color: white" i],
+html[data-theme="dark"] [style*="background-color:#fff" i] {
+  background-color: var(--theme-surface) !important;
+}
+
+@media print {
+  html[data-theme="dark"], html[data-theme="dark"] body { color-scheme: light; background:#fff !important; color:#111 !important; }
+  html[data-theme="dark"] [class*="docPreview" i] { background:#fff !important; color:#111 !important; }
+}
+
+html[data-theme="dark"] {
+  --theme-surface-raised: #171e29;
+  --theme-surface-soft: #121924;
+  --theme-text-strong: #fffaf2;
+  --theme-text-soft: #c7b7bd;
+  --theme-accent-soft: #f0d77f;
+}
+
+/* Common hardcoded light blocks missed by legacy module names. */
+html[data-theme="dark"] [class*="filters" i],
+html[data-theme="dark"] [class*="filterBar" i],
+html[data-theme="dark"] [class*="tableCard" i],
+html[data-theme="dark"] [class*="tableContainer" i],
+html[data-theme="dark"] [class*="stats" i] > article,
+html[data-theme="dark"] [class*="summary" i] > article,
+html[data-theme="dark"] [class*="metric" i],
+html[data-theme="dark"] [class*="kpi" i],
+html[data-theme="dark"] [class*="module" i],
+html[data-theme="dark"] [class*="tile" i],
+html[data-theme="dark"] [class*="register" i],
+html[data-theme="dark"] [class*="notice" i],
+html[data-theme="dark"] [class*="heroCard" i],
+html[data-theme="dark"] [class*="statCard" i],
+html[data-theme="dark"] [class*="overview" i] > article {
+  background: var(--theme-surface-raised) !important;
+  color: var(--theme-text-strong) !important;
+  border-color: var(--theme-border) !important;
+  box-shadow: none !important;
+}
+
+/* Product rows and light list rows. */
+html[data-theme="dark"] [class*="row" i]:not([class*="arrow" i]),
+html[data-theme="dark"] [class*="productRow" i],
+html[data-theme="dark"] [class*="orderRow" i],
+html[data-theme="dark"] [class*="customerRow" i] {
+  border-color: var(--theme-border) !important;
+}
+html[data-theme="dark"] [class*="row" i]:not([class*="arrow" i]):hover {
+  background-color: var(--theme-row-hover) !important;
+}
+
+/* Restore readable typography over dark surfaces. */
+html[data-theme="dark"] main h1,
+html[data-theme="dark"] main h2,
+html[data-theme="dark"] main h3,
+html[data-theme="dark"] main h4,
+html[data-theme="dark"] main strong,
+html[data-theme="dark"] main [class*="value" i],
+html[data-theme="dark"] main [class*="amount" i],
+html[data-theme="dark"] main [class*="number" i] {
+  color: var(--theme-text-strong) !important;
+}
+html[data-theme="dark"] main p,
+html[data-theme="dark"] main small,
+html[data-theme="dark"] main [class*="label" i],
+html[data-theme="dark"] main [class*="caption" i],
+html[data-theme="dark"] main [class*="meta" i] {
+  color: var(--theme-text-soft) !important;
+}
+
+/* Keep branded section eyebrows and actionable accents visible. */
+html[data-theme="dark"] main [class*="eyebrow" i],
+html[data-theme="dark"] main [class*="overline" i],
+html[data-theme="dark"] main [class*="kicker" i] {
+  color: #c992a6 !important;
+}
+html[data-theme="dark"] main a:not([class*="button" i]) {
+  color: #e4bd58;
+}
+
+html[data-theme="dark"] [class*="dashboard" i] [class*="card" i],
+html[data-theme="dark"] [class*="action" i] [class*="card" i],
+html[data-theme="dark"] [class*="automation" i] [class*="card" i],
+html[data-theme="dark"] [class*="customers" i] [class*="stats" i] > article {
+  background: var(--theme-surface-raised) !important;
+  color: var(--theme-text-strong) !important;
+}
+
+/* Filter shells must not stay cream/white in dark mode. */
+html[data-theme="dark"] [class*="filters" i] input,
+html[data-theme="dark"] [class*="filters" i] select,
+html[data-theme="dark"] [class*="filters" i] textarea {
+  background: var(--theme-input) !important;
+  color: var(--theme-text-strong) !important;
+}
+html[data-theme="dark"] ::placeholder { color: #9d8d95 !important; opacity: 1; }
+
+/* Public pages with inline or legacy light backgrounds. */
+html[data-theme="dark"] main[style*="background" i] {
+  background: var(--theme-bg) !important;
+  color: var(--theme-text-strong) !important;
+}
+html[data-theme="dark"] main[style*="background" i] h1,
+html[data-theme="dark"] main[style*="background" i] h2,
+html[data-theme="dark"] main[style*="background" i] p {
+  color: inherit !important;
+}
+
+/* Status pills and tabs keep contrast without becoming white islands. */
+html[data-theme="dark"] [class*="tab" i],
+html[data-theme="dark"] [class*="pill" i],
+html[data-theme="dark"] [class*="badge" i] {
+  border-color: var(--theme-border-strong) !important;
+}
+html[data-theme="dark"] [class*="tab" i]:not([class*="active" i]) {
+  background: var(--theme-surface-raised) !important;
+  color: var(--theme-text-soft) !important;
+}
+
+/* Explicit exceptions: actual printable pages remain paper-white. */
+html[data-theme="dark"] [data-print-surface="true"],
+html[data-theme="dark"] [class*="printPaper" i],
+html[data-theme="dark"] [class*="documentPaper" i] {
+  background: #fffdf9 !important;
+  color: #21161b !important;
+}
+html[data-theme="dark"] [data-print-surface="true"] *,
+html[data-theme="dark"] [class*="printPaper" i] *,
+html[data-theme="dark"] [class*="documentPaper" i] * { color: inherit !important; }
+
+/* v25.2 — final dark-mode legibility pass */
+html[data-theme="dark"] main [class*="biKpis" i] > article,
+html[data-theme="dark"] main [class*="summary" i] > article,
+html[data-theme="dark"] main [class*="crmSummary" i] > article,
+html[data-theme="dark"] main [class*="dashboardStats" i] > article {
+  background:#171e29 !important;
+  color:#fff8ef !important;
+  border-color:rgba(240,215,127,.16) !important;
+}
+html[data-theme="dark"] main [class*="biKpis" i] strong,
+html[data-theme="dark"] main [class*="summary" i] strong,
+html[data-theme="dark"] main [class*="crmSummary" i] strong,
+html[data-theme="dark"] main [class*="dashboardStats" i] strong { color:#fff8ef !important; }
+html[data-theme="dark"] main [class*="biKpis" i] span,
+html[data-theme="dark"] main [class*="biKpis" i] small,
+html[data-theme="dark"] main [class*="summary" i] span,
+html[data-theme="dark"] main [class*="summary" i] small { color:#c9b9c0 !important; }
+html[data-theme="dark"] input[type="checkbox"],
+html[data-theme="dark"] input[type="radio"] { accent-color:#d8b556; }
+html[data-theme="dark"] [class*="checks" i] label,
+html[data-theme="dark"] [class*="segmented" i] span {
+  background:#222b38 !important;
+  color:#fff8ef !important;
+  border-color:rgba(240,215,127,.18) !important;
+}
+html[data-theme="dark"] canvas,
+html[data-theme="dark"] svg { color:#d9cbd1; }
+html[data-theme="dark"] svg text { fill:#d9cbd1 !important; }
+html[data-theme="dark"] svg line,
+html[data-theme="dark"] svg path[stroke] { stroke:#596576; }
+
+/* v25.4 — targeted contrast fixes without covering image-backed content */
+html[data-theme="dark"] [class*="heroContent" i],
+html[data-theme="dark"] [class*="imageContent" i],
+html[data-theme="dark"] [class*="bannerContent" i],
+html[data-theme="dark"] [class*="slideContent" i] {
+  background-color: transparent !important;
+}
+html[data-theme="dark"] [class*="product" i] [class*="name" i],
+html[data-theme="dark"] [class*="product" i] [class*="title" i],
+html[data-theme="dark"] [class*="catalog" i] [class*="title" i] {
+  color:#fff8ef !important;
+}
+html[data-theme="dark"] [class*="filter" i] summary,
+html[data-theme="dark"] [class*="filter" i] label,
+html[data-theme="dark"] [class*="filter" i] em,
+html[data-theme="dark"] [class*="filter" i] span {
+  color:#ddd0d5;
+}
+html[data-theme="dark"] [class*="filter" i] summary,
+html[data-theme="dark"] [class*="filter" i] [class*="head" i] {
+  color:#fff8ef !important;
+}
+html[data-theme="dark"] input[type="number"]:invalid {
+  color:#fff8ef !important;
+  box-shadow:none;
+}
+html[data-theme="dark"] input[type="number"]::-webkit-inner-spin-button,
+html[data-theme="dark"] input[type="number"]::-webkit-outer-spin-button { opacity:.75; }
+
+/* Global live brand palette: storefront + administration. */
+:root {
+  --brand-primary: var(--wine-800, #69092f);
+  --brand-primary-soft: color-mix(in srgb, var(--brand-primary) 12%, white);
+  --brand-primary-deep: color-mix(in srgb, var(--brand-primary) 82%, black 18%);
+  --brand-primary-darker: color-mix(in srgb, var(--brand-primary) 68%, black 32%);
+}
+
+/* Legacy admin/store controls that use structural class names now inherit the selected brand. */
+[class*="sidebar" i],
+[class*="adminNav" i],
+[class*="sideNav" i] {
+  --legacy-brand-bg: var(--brand-primary);
+}
+
+[class*="primaryButton" i],
+[class*="submitButton" i],
+[class*="actionButton" i],
+[class*="addButton" i],
+[class*="saveButton" i],
+[class*="publishButton" i],
+button[class*="primary" i],
+a[class*="primary" i] {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+[class*="active" i][class*="nav" i],
+[class*="selected" i][class*="nav" i],
+[class*="tableHeader" i],
+[class*="avatar" i],
+[class*="newPill" i] {
+  background-color: var(--brand-primary) !important;
+}

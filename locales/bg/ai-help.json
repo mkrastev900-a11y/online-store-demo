@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "locale": "bg",
+    "module": "ai-help",
+    "status": "foundation",
+    "note": "Keys are migrated incrementally; Bulgarian remains the safe fallback."
+  },
+  "customerSupport": {
+    "returnOrderItems": "При връщане или рекламация първо се избира поръчката. След това системата показва само артикулите от нея. Клиентът може да маркира един или повече артикули и за всеки да зададе количество до реално закупеното. При смяна на поръчката изборът на артикули се изчиства автоматично."
+  }
+}

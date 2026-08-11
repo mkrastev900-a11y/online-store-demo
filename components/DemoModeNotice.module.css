@@ -1,0 +1,29 @@
+.notice {
+  position: fixed;
+  z-index: 2147482000;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  max-width: min(420px, calc(100vw - 24px));
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-left: 3px solid #10b981;
+  border-radius: 4px;
+  background: #171717;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.notice strong {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 520px) {
+  .notice {
+    left: 12px;
+    align-items: flex-start;
+  }
+}

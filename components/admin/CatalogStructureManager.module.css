@@ -1,0 +1,57 @@
+.wrapper { display: grid; gap: 20px; }
+.card { border: 1px solid rgba(92, 11, 45, .14); border-radius: 20px; background: #fffdf9; padding: 20px; box-shadow: 0 18px 45px rgba(27, 15, 20, .06); }
+.cardHeader { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 18px; }
+.card h2 { margin: 0 0 6px; color: #2b1220; }
+.card p { margin: 0; color: #806c75; }
+.formGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: end; }
+.formGrid label, .sectionRow label, .categoryRow label, .searchBox { display: grid; gap: 6px; font-size: 12px; font-weight: 800; color: #5c0b2d; text-transform: uppercase; letter-spacing: .08em; }
+.formGrid input, .formGrid select, .sectionRow input, .sectionRow select, .sectionRow textarea, .categoryRow input, .categoryRow select, .searchBox input, .searchBox select { width: 100%; border: 1px solid rgba(92, 11, 45, .18); border-radius: 12px; padding: 10px 12px; background: #fff; color: #21161b; font: inherit; text-transform: none; letter-spacing: 0; }
+.formGrid button, .actions button { border: 0; border-radius: 12px; padding: 11px 14px; background: #5c0b2d; color: white; font-weight: 900; cursor: pointer; }
+.wideField { grid-column: span 4; }
+.list { display: grid; gap: 12px; margin-top: 18px; }
+.sectionRow { display: grid; grid-template-columns: 1fr 1fr 1fr 1.6fr .7fr auto; gap: 12px; align-items: end; border: 1px solid rgba(92, 11, 45, .1); border-radius: 16px; padding: 14px; background: #fff; }
+.categoryRow { display: grid; grid-template-columns: 1.2fr 1.1fr 1.2fr 1.4fr auto; gap: 12px; align-items: end; border: 1px solid rgba(92, 11, 45, .1); border-radius: 16px; padding: 14px; background: #fff; }
+.sectionRow textarea { min-height: 42px; resize: vertical; }
+.meta { font-size: 12px; color: #806c75; }
+.actions { display: flex; gap: 8px; justify-content: flex-end; }
+.actions .danger { background: #8f1d1d; }
+.message { border-radius: 12px; padding: 12px 14px; background: #f9eed8; color: #5c0b2d; font-weight: 800; }
+.searchBox { min-width: 260px; }
+.filterBar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.empty { margin-top: 14px !important; border: 1px dashed rgba(92, 11, 45, .22); border-radius: 14px; padding: 14px; background: #fff; color: #806c75; font-weight: 800; }
+@media (max-width: 1300px) { .sectionRow, .categoryRow { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) { .cardHeader { flex-direction: column; } .formGrid, .sectionRow, .categoryRow { grid-template-columns: 1fr; } .wideField { grid-column: auto; } .searchBox { min-width: 0; width: 100%; } }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 16px;
+  padding: 16px 18px;
+  border: 1px solid rgba(92, 11, 45, .1);
+  border-radius: 15px;
+  background: #fffdfb;
+}
+.paginationInfo { color: #8a727c; font-size: 12px; font-weight: 750; }
+.paginationControls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.pageGroup { display: inline-flex; align-items: center; gap: 6px; }
+.pageDots { color: #9b818b; font-weight: 900; padding: 0 2px; }
+.pageButton {
+  min-width: 38px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid rgba(92, 11, 45, .14);
+  border-radius: 999px;
+  background: #f5e9ed;
+  color: #5c0b2d;
+  font-weight: 900;
+  cursor: pointer;
+}
+.pageButton:hover:not(:disabled) { transform: translateY(-1px); border-color: rgba(181, 132, 34, .45); }
+.pageButton:disabled { opacity: .42; cursor: not-allowed; }
+.pageButtonActive { background: #5c0b2d; color: #f4d77f; border-color: #5c0b2d; }
+@media (max-width: 560px) {
+  .pagination { align-items: stretch; flex-direction: column; }
+  .paginationControls { justify-content: flex-start; }
+}

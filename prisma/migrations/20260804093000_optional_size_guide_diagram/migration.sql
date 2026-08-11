@@ -1,0 +1,1 @@
+ALTER TABLE "SizeGuide" ADD COLUMN "showDiagram" BOOLEAN NOT NULL DEFAULT true;

@@ -1,0 +1,205 @@
+.page {
+  min-height: calc(100vh - 92px);
+  padding: 70px 20px;
+  display: grid;
+  place-items: center;
+  background: #fff9f5;
+}
+
+.card {
+  width: min(100%, 520px);
+  padding: 44px;
+  border: 1px solid #eadce2;
+  background: #fff;
+  box-shadow: 0 22px 60px rgba(67, 10, 34, .08);
+}
+
+.eyebrow {
+  color: var(--brand-primary);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .2em;
+}
+
+.title {
+  margin: 12px 0 9px;
+  color: #2d1821;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 44px;
+  font-weight: 500;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  color: #79636c;
+  line-height: 1.6;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field label {
+  color: #432633;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.field input {
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid #ddcdd4;
+  outline: none;
+  background: #fffdfc;
+}
+
+.field input:focus {
+  border-color: #740d38;
+  box-shadow: 0 0 0 3px rgba(116, 13, 56, .08);
+}
+
+.error {
+  padding: 12px 14px;
+  background: #fff0f2;
+  color: #9e173e;
+  font-size: 13px;
+}
+
+.button {
+  height: 52px;
+  border: 0;
+  background: var(--brand-primary);
+  color: #f4d77f;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.googleButton {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #747775;
+  border-radius: 6px;
+  background: #fff;
+  color: #1f1f1f;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-decoration: none;
+  transition: background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease, transform 100ms ease;
+}
+
+.googleButton:hover {
+  border-color: #5f6368;
+  background: #f8faff;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, .18), 0 1px 3px 1px rgba(60, 64, 67, .10);
+}
+
+.googleButton:active {
+  transform: translateY(1px);
+  background: #eef3fe;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, .12);
+}
+
+.googleButton:focus-visible {
+  outline: 3px solid rgba(26, 115, 232, .28);
+  outline-offset: 2px;
+}
+
+.googleIcon {
+  position: absolute;
+  left: 16px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+}
+
+.googleLogo {
+  width: 22px;
+  height: auto;
+  display: block;
+}
+
+.googleButtonLabel {
+  padding: 0 34px;
+}
+
+.divider {
+  margin: 18px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #9a818b;
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #eadce2;
+}
+
+.switch {
+  text-align: center;
+  color: #79636c;
+}
+
+.switch a {
+  color: var(--brand-primary);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 28px 14px;
+  }
+
+  .card {
+    padding: 30px 22px;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .googleButton {
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .googleButtonLabel {
+    padding: 0 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .googleButton {
+    transition: none;
+  }
+}
+
+.labelRow{display:flex;align-items:center;justify-content:space-between;gap:12px}.forgotLink{color:var(--brand-primary);font-size:12px;font-weight:800;text-decoration:none}.forgotLink:hover{text-decoration:underline}.success{padding:12px 14px;background:#eef9f0;color:#276b3a;font-size:13px;border:1px solid #cfe8d5}
+.secondaryButton{width:100%;margin-top:12px;padding:14px 18px;border:1px solid var(--brand-primary,#740d38);background:transparent;color:var(--brand-primary,#740d38);font-weight:800;cursor:pointer}.secondaryButton:disabled{opacity:.55;cursor:not-allowed}.success{padding:14px;border:1px solid #b9dec4;background:#edf9f0;color:#176b35;line-height:1.5}

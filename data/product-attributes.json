@@ -1,0 +1,22 @@
+{
+  "productTypes": [
+    { "id": "t-shirt", "label": "Тениска", "value": "CLOTHING", "isActive": true, "sortOrder": 10 },
+    { "id": "dress", "label": "Рокля", "value": "CLOTHING", "isActive": true, "sortOrder": 20 },
+    { "id": "pants", "label": "Панталон", "value": "CLOTHING", "isActive": true, "sortOrder": 30 },
+    { "id": "sneakers", "label": "Маратонки", "value": "SHOES", "isActive": true, "sortOrder": 40 },
+    { "id": "ring", "label": "Пръстен", "value": "ACCESSORY", "isActive": true, "sortOrder": 50 }
+  ],
+  "colors": [
+    { "id": "black", "label": "Черен", "isActive": true, "sortOrder": 10 },
+    { "id": "white", "label": "Бял", "isActive": true, "sortOrder": 20 },
+    { "id": "red", "label": "Червен", "isActive": true, "sortOrder": 30 },
+    { "id": "blue", "label": "Син", "isActive": true, "sortOrder": 40 }
+  ],
+  "materials": [
+    { "id": "cotton", "label": "Памук", "isActive": true, "sortOrder": 10 },
+    { "id": "polyester", "label": "Полиестер", "isActive": true, "sortOrder": 20 },
+    { "id": "wool", "label": "Вълна", "isActive": true, "sortOrder": 30 },
+    { "id": "leather", "label": "Кожа", "isActive": true, "sortOrder": 40 }
+  ],
+  "productKinds": {}
+}

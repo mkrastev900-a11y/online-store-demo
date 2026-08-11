@@ -1,0 +1,15 @@
+CREATE TYPE "SupportTicketStatus" AS ENUM ('NEW','IN_PROGRESS','WAITING_CUSTOMER','CLOSED');
+CREATE TYPE "SupportTicketTopic" AS ENUM ('GENERAL','OTHER','ORDER_QUESTION','DAMAGED_SHIPMENT','CLAIM','RETURN_REQUEST','WARRANTY');
+CREATE TABLE "SupportTicket" ("id" SERIAL PRIMARY KEY,"reference" VARCHAR(32) NOT NULL UNIQUE,"userId" INTEGER,"orderId" INTEGER,"topic" "SupportTicketTopic" NOT NULL,"status" "SupportTicketStatus" NOT NULL DEFAULT 'NEW',"guestName" VARCHAR(100),"guestEmail" VARCHAR(254),"subject" VARCHAR(180) NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,"updatedAt" TIMESTAMP(3) NOT NULL,"closedAt" TIMESTAMP(3));
+CREATE TABLE "SupportTicketMessage" ("id" SERIAL PRIMARY KEY,"ticketId" INTEGER NOT NULL,"authorId" INTEGER,"body" TEXT NOT NULL,"isAdmin" BOOLEAN NOT NULL DEFAULT false,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE "SupportTicketAttachment" ("id" SERIAL PRIMARY KEY,"ticketId" INTEGER NOT NULL,"messageId" INTEGER,"fileName" VARCHAR(255) NOT NULL,"mimeType" VARCHAR(120) NOT NULL,"size" INTEGER NOT NULL,"url" TEXT NOT NULL,"publicId" VARCHAR(255) NOT NULL,"resourceType" VARCHAR(20) NOT NULL DEFAULT 'image',"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+ALTER TABLE "SupportTicket" ADD CONSTRAINT "SupportTicket_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "SupportTicket" ADD CONSTRAINT "SupportTicket_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "SupportTicketMessage" ADD CONSTRAINT "SupportTicketMessage_ticketId_fkey" FOREIGN KEY ("ticketId") REFERENCES "SupportTicket"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "SupportTicketMessage" ADD CONSTRAINT "SupportTicketMessage_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "SupportTicketAttachment" ADD CONSTRAINT "SupportTicketAttachment_ticketId_fkey" FOREIGN KEY ("ticketId") REFERENCES "SupportTicket"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+CREATE INDEX "SupportTicket_status_createdAt_idx" ON "SupportTicket"("status","createdAt");
+CREATE INDEX "SupportTicket_userId_createdAt_idx" ON "SupportTicket"("userId","createdAt");
+CREATE INDEX "SupportTicket_orderId_idx" ON "SupportTicket"("orderId");
+CREATE INDEX "SupportTicketMessage_ticketId_createdAt_idx" ON "SupportTicketMessage"("ticketId","createdAt");
+CREATE INDEX "SupportTicketAttachment_ticketId_idx" ON "SupportTicketAttachment"("ticketId");

@@ -1,0 +1,1 @@
+ALTER TABLE "SiteDesignSettings" ADD COLUMN IF NOT EXISTS "pageContentJson" TEXT NOT NULL DEFAULT '{}';

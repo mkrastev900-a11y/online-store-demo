@@ -1,0 +1,554 @@
+.editor{--rail:76px;--inspector:360px;height:100vh;min-height:720px;overflow:hidden;background:#d8dce3;color:#20242b;font-family:Inter,Arial,sans-serif}.appBar{height:68px;display:grid;grid-template-columns:minmax(240px,1fr) minmax(280px,420px) minmax(390px,1fr);align-items:center;gap:20px;padding:0 16px;background:linear-gradient(180deg,#fff,#f4f5f8);border-bottom:1px solid #adb4bf;box-shadow:0 4px 16px rgba(30,38,50,.08);position:relative;z-index:20}.appIdentity{display:flex;align-items:center;gap:11px}.appIdentity>div{display:grid;gap:2px}.appIdentity strong{font-size:15px}.appIdentity small,.appIdentity span{font-size:11px;color:#707782}.appLogo{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(145deg,#750638,#3f031e);color:#f7dc83;font:800 23px Georgia,serif;box-shadow:0 7px 16px rgba(92,6,42,.22)}.pageChooser{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px}.pageChooser>span{font-size:11px;font-weight:800;color:#707782;text-transform:uppercase;letter-spacing:.08em}.pageChooser select{height:40px;border:1px solid #afb6c1;border-radius:9px;padding:0 38px 0 12px;background:#fff;font-weight:700;color:#272b32}.appActions{display:flex;justify-content:flex-end;gap:8px}.appActions a,.appActions button{height:40px;padding:0 17px;border:1px solid #a8afba;border-radius:9px;background:#fff;color:#292e36;font-weight:800;text-decoration:none;display:grid;place-items:center;cursor:pointer}.appActions button:disabled{opacity:.45;cursor:not-allowed}.appActions .publishButton{border-color:#66052f;background:linear-gradient(135deg,#780638,#4b0323);color:#ffedaf}.appActions .closeButton{width:40px;padding:0;font-size:23px;color:#78103b}.application{height:calc(100vh - 68px);display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--inspector);min-height:0}.toolRail{padding:12px 8px;display:flex;flex-direction:column;gap:7px;background:linear-gradient(180deg,#f8f9fb,#e7eaf0);border-right:1px solid #aeb5c0;box-shadow:5px 0 18px rgba(29,37,49,.08);z-index:12}.toolButton{height:62px;border:1px solid transparent;border-radius:11px;background:transparent;display:grid;place-items:center;align-content:center;gap:3px;color:#3f4650;cursor:pointer}.toolButton:hover{background:#fff;border-color:#c0c6cf}.toolButton>span{font-size:23px;font-weight:800;line-height:1}.toolButton small{font-size:9px;font-weight:800}.activeTool{background:#fff!important;border-color:#8b254d!important;color:#710735!important;box-shadow:0 5px 15px rgba(91,11,45,.12)}.stageArea{min-width:0;display:grid;grid-template-rows:48px minmax(0,1fr);background:#cdd2da}.stageToolbar{display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#eef0f4;border-bottom:1px solid #b4bac4}.deviceButtons{display:flex;gap:5px}.deviceButtons button,.zoomControl button{height:32px;border:1px solid #b4bbc5;border-radius:7px;background:#fff;color:#48505a;font-size:11px;font-weight:800;cursor:pointer}.deviceButtons button{padding:0 12px}.deviceButtons .activeDevice{background:#66052f;color:#fff3bd;border-color:#66052f}.zoomControl{display:flex;align-items:center;gap:8px}.zoomControl button{width:32px;font-size:18px}.zoomControl input{width:110px}.zoomControl span{width:42px;font-size:11px;font-weight:800;color:#525962}.stageScroller{min-height:0;overflow:auto;padding:36px 44px 80px;background-color:#cfd4dc;background-image:linear-gradient(45deg,rgba(255,255,255,.28) 25%,transparent 25%),linear-gradient(-45deg,rgba(255,255,255,.28) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,rgba(255,255,255,.28) 75%),linear-gradient(-45deg,transparent 75%,rgba(255,255,255,.28) 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0}.deviceFrame{margin:0 auto;background:#272b33;border:1px solid #59606b;border-radius:15px;padding:10px;box-shadow:0 28px 70px rgba(22,29,39,.28);transition:width .25s ease}.desktop{width:1280px}.tablet{width:820px}.mobile{width:390px}.browserChrome{height:34px;display:flex;align-items:center;gap:6px;padding:0 10px;color:#c9ced6}.browserChrome>span{width:9px;height:9px;border-radius:50%;background:#7f8792}.browserChrome>span:first-child{background:#e36d6d}.browserChrome>span:nth-child(2){background:#e1b452}.browserChrome>span:nth-child(3){background:#71b879}.browserChrome>div{height:22px;flex:1;margin-left:8px;display:grid;place-items:center;border-radius:6px;background:#3a404a;font-size:10px}.scaleLayer{width:100%;overflow:hidden;background:#fff;border-radius:7px}.canvas{width:1280px;transform:scale(var(--editor-zoom));transform-origin:top left;background:var(--editor-bg);color:var(--editor-text);font-family:var(--editor-font);min-height:1100px}.desktop .scaleLayer{height:calc(1100px * var(--editor-zoom))}.tablet .scaleLayer{height:calc(1100px * var(--editor-zoom))}.mobile .scaleLayer{height:calc(1100px * var(--editor-zoom))}.storeHeader{height:84px;padding:0 52px;display:grid;grid-template-columns:190px 1fr 155px;align-items:center;background:var(--editor-surface);border-bottom:1px solid rgba(0,0,0,.08);position:relative;cursor:pointer}.canvasLogo{height:66px;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;border-radius:10px}.canvasLogo img{max-width:165px;max-height:58px;object-fit:contain}.storeHeader nav{display:flex;justify-content:center;gap:27px;font-size:14px;font-weight:800}.headerIcons{text-align:right;font-weight:800}.hero{min-height:600px;display:grid;grid-template-columns:58% 42%;background:var(--editor-bg)}.heroCopy{padding:92px 72px;display:flex;flex-direction:column;justify-content:center;position:relative;cursor:pointer}.heroCopy small{color:var(--editor-primary);font-weight:900;letter-spacing:.24em}.heroCopy h1{max-width:690px;margin:20px 0;font:700 72px/.98 var(--editor-heading);white-space:pre-wrap}.heroCopy p{max-width:570px;font-size:20px;line-height:1.6;color:color-mix(in srgb,var(--editor-text) 78%,transparent);white-space:pre-wrap}.heroCopy button{align-self:flex-start;margin-top:22px;padding:17px 29px;border:0;border-radius:var(--editor-radius);background:var(--editor-primary);color:#fff;font-size:16px;font-weight:900}.heroCopy [contenteditable=true]:focus{outline:2px dashed #1686e7;outline-offset:5px;border-radius:3px}.heroImage{border:0;background-color:#eee;background-size:cover;background-position:center;position:relative;cursor:pointer}.heroImage>span{position:absolute;inset:0;display:grid;place-items:center;color:#7c838d;font-weight:800;background:linear-gradient(135deg,#f4f1ee,#e3ddd7)}.contentSection{padding:70px 60px 90px;background:var(--editor-surface)}.sectionHeading{text-align:center}.sectionHeading span{color:var(--editor-primary);font-size:11px;font-weight:900;letter-spacing:.2em}.sectionHeading h2{margin:10px;font:700 46px var(--editor-heading)}.productGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:35px}.productGrid article{display:grid;gap:8px}.productImage{height:260px;border-radius:calc(var(--editor-radius) * .65);background:linear-gradient(145deg,#e7dcd5,#c7b7ad)}.productGrid small{color:#8c7380;font-weight:900}.productGrid strong{font-size:16px}.productGrid span{font-weight:900}.storeFooter{padding:74px 50px;text-align:center;background:var(--editor-primary);color:#fff;position:relative;cursor:pointer}.storeFooter h2{margin:11px;font:700 42px var(--editor-heading)}.storeFooter p{opacity:.82}.storeFooter div{margin-top:45px;font-size:12px;opacity:.65}.selection{outline:4px solid #1686e7!important;outline-offset:-4px;position:relative}.selection:after{content:"Избран елемент";position:absolute;z-index:8;top:8px;left:8px;padding:6px 9px;border-radius:5px;background:#1686e7;color:#fff;font:800 11px Arial;box-shadow:0 5px 14px rgba(22,134,231,.3)}.inspector{min-width:0;overflow:auto;background:linear-gradient(180deg,#fffaf5,#f5ebe4);border-left:1px solid rgba(90,12,44,.2);box-shadow:-10px 0 28px rgba(66,24,41,.08);z-index:11}.inspectorPanel{display:grid;gap:16px;padding:22px}.inspectorHeader{display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:center;padding-bottom:17px;border-bottom:1px solid rgba(92,6,42,.14)}.inspectorHeader>span{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#730637,#3e031d);color:#f7dc83;font:900 22px Georgia,serif;box-shadow:0 8px 20px rgba(92,6,42,.22)}.inspectorHeader h2{margin:0;color:#35101f;font:700 22px Georgia,serif}.inspectorHeader p{margin:5px 0 0;color:#896e78;font-size:12px;line-height:1.4}.field{display:grid;gap:7px;color:#582337;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.04em}.field input,.field textarea{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid rgba(92,6,42,.2);border-radius:11px;background:rgba(255,255,255,.9);color:#2e1420;font:500 14px Arial}.field textarea{min-height:96px;resize:vertical}.field input:focus,.field textarea:focus{outline:3px solid rgba(200,154,49,.18);border-color:#b7892d;background:#fff}.field small{font-size:10px;color:#9b7d87;text-transform:none;letter-spacing:0;font-weight:500}.imageCard{overflow:hidden;border:1px solid rgba(92,6,42,.16);border-radius:18px;background:#fff;box-shadow:0 12px 28px rgba(72,22,42,.10)}.imagePreview{height:220px;display:grid;place-items:center;padding:18px;background:linear-gradient(135deg,#fbf7f3,#eee3da)}.imagePreview img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(45,19,32,.16))}.imagePreview>span{color:#917680;font-size:12px}.imageCard>div:last-child{display:grid;gap:3px;padding:13px 15px;border-top:1px solid rgba(92,6,42,.1)}.imageCard strong{font-size:13px;color:#421429}.imageCard small{font-size:11px;color:#927681}.replaceButton{min-height:68px;display:grid;grid-template-columns:42px 1fr;align-items:center;gap:12px;padding:12px 14px;border:1px solid #c89a31;border-radius:14px;background:linear-gradient(135deg,#fff8df,#f4d978);color:#4b1c2e;text-align:left;cursor:pointer;box-shadow:0 8px 20px rgba(173,126,25,.14)}.replaceButton:hover{transform:translateY(-1px);box-shadow:0 11px 24px rgba(173,126,25,.2)}.replaceButton>span{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#6d0632;color:#fff3c3;font-size:24px}.replaceButton div{display:grid;gap:3px}.replaceButton strong{font-size:14px}.replaceButton small{font-size:10px;color:#7d5a33}.divider{display:flex;align-items:center;gap:9px;color:#a48791;font-size:10px;text-transform:uppercase}.divider:before,.divider:after{content:"";height:1px;flex:1;background:rgba(92,6,42,.12)}.colorField{display:grid;gap:8px;color:#582337;font-size:11px;font-weight:900;text-transform:uppercase}.colorField>div{display:grid;grid-template-columns:54px 1fr;gap:10px}.colorField input[type=color]{width:54px;height:44px;padding:3px;border:1px solid rgba(92,6,42,.2);border-radius:11px;background:#fff}.colorField input:not([type=color]){min-width:0;padding:10px 12px;border:1px solid rgba(92,6,42,.2);border-radius:11px;background:#fff;font-family:monospace}.rangeField{display:grid;gap:9px;color:#582337;font-size:11px;font-weight:900;text-transform:uppercase}.menuList{display:grid;gap:12px}.menuCard{display:grid;gap:10px;padding:13px;border:1px solid rgba(92,6,42,.15);border-radius:15px;background:rgba(255,255,255,.82);box-shadow:0 7px 18px rgba(73,20,42,.06)}.menuCardTop{display:flex;justify-content:space-between;align-items:center;color:#4c1b2f}.switch{position:relative;width:42px;height:24px}.switch input{opacity:0;position:absolute}.switch span{position:absolute;inset:0;border-radius:999px;background:#ccbfc4;cursor:pointer}.switch span:after{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 2px 6px rgba(0,0,0,.2)}.switch input:checked+span{background:#750638}.switch input:checked+span:after{transform:translateX(18px)}.deleteButton,.addButton{min-height:40px;border-radius:11px;font-weight:800;cursor:pointer}.deleteButton{border:1px solid #d7a9b9;background:#fff5f7;color:#8e1747}.addButton{border:1px solid #7b123e;background:linear-gradient(135deg,#720535,#4e0323);color:#ffeaa6;box-shadow:0 8px 18px rgba(92,6,42,.18)}.statusMessage{margin:0 22px 22px;padding:12px 14px;border:1px solid rgba(92,6,42,.12);border-radius:12px;background:rgba(255,255,255,.67);color:#6f5360;font-size:12px;line-height:1.45}.standalone{height:100vh}@media(max-width:1300px){.editor{--inspector:330px}.appBar{grid-template-columns:230px minmax(240px,340px) 1fr}.appActions a,.appActions button{padding:0 11px}.stageScroller{padding-left:25px;padding-right:25px}}@media(max-width:980px){.editor{height:auto;overflow:auto}.appBar{height:auto;grid-template-columns:1fr;padding:10px}.appActions{justify-content:flex-start;flex-wrap:wrap}.application{height:auto;grid-template-columns:70px minmax(700px,1fr) 320px}.stageArea,.inspector{min-height:760px}}
+/* Real WYSIWYG storefront preview */
+.deviceFrame{padding:10px;transition:width .25s ease,transform .2s ease;overflow:hidden}
+.desktop{width:1440px}.tablet{width:834px}.mobile{width:390px}
+.livePreview{display:block;width:100%;height:1180px;border:0;border-radius:0 0 7px 7px;background:#fff}
+.tablet .livePreview{height:1112px}.mobile .livePreview{height:844px}
+.stageScroller{display:flex;align-items:flex-start;justify-content:center}
+@media(max-width:1300px){.desktop{width:1366px}}
+
+/* Exact viewport sizing for the live preview. The iframe viewport, not only its visual shell,
+   must match the selected device so the real storefront media queries run correctly. */
+.deviceFrame{box-sizing:content-box;max-width:none;flex:0 0 auto}
+.livePreview{box-sizing:border-box;max-width:none}
+.desktop .livePreview{width:1440px!important;min-width:1440px!important}
+.tablet .livePreview{width:834px!important;min-width:834px!important}
+.mobile .livePreview{width:390px!important;min-width:390px!important}
+
+/* Version history and named save dialogs */
+.historyButton{border-color:#8b6a2d!important;background:linear-gradient(180deg,#fffdf4,#f7edca)!important;color:#5a3b10!important}
+.modalBackdrop{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:clamp(10px,2.5vh,24px);background:rgba(24,12,19,.62);backdrop-filter:blur(8px);box-sizing:border-box;overflow:hidden}
+.versionDialog,.historyDialog{width:min(560px,calc(100vw - 36px));border:1px solid rgba(255,227,146,.5);border-radius:24px;background:linear-gradient(145deg,#fffdf9,#f5e9df);box-shadow:0 35px 100px rgba(31,8,19,.42);color:#34111f}
+.versionDialog{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:28px}
+.dialogIcon{width:64px;height:64px;display:grid;place-items:center;border-radius:19px;background:linear-gradient(145deg,#760638,#43031f);color:#ffe69a;font:900 27px Georgia,serif;box-shadow:0 14px 30px rgba(92,6,42,.28)}
+.dialogHeading small,.historyHeader small{color:#8e6b31;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.dialogHeading h2,.historyHeader h2{margin:5px 0 7px;font:700 28px/1.1 Georgia,serif;color:#3c1022}
+.dialogHeading p,.historyHeader p{margin:0;color:#806773;font-size:13px;line-height:1.55}
+.versionNameField{grid-column:1/-1;display:grid;gap:8px;position:relative;color:#5d2439;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.versionNameField input{height:52px;padding:0 58px 0 15px;border:1px solid rgba(92,6,42,.24);border-radius:14px;background:#fff;color:#32111f;font-size:16px;font-weight:700;box-shadow:inset 0 1px 2px rgba(38,10,21,.04)}
+.versionNameField input:focus{outline:4px solid rgba(190,145,47,.17);border-color:#b88b31}
+.versionNameField span{position:absolute;right:13px;bottom:18px;color:#a58b95;font-size:10px;font-weight:700}
+.dialogActions{grid-column:1/-1;display:flex;justify-content:flex-end;gap:10px;margin-top:4px}
+.dialogActions button{height:44px;padding:0 18px;border:1px solid rgba(92,6,42,.22);border-radius:12px;background:#fff;color:#572139;font-weight:900;cursor:pointer}
+.dialogActions button:disabled{opacity:.5;cursor:not-allowed}
+.dialogActions .dialogPrimary{border-color:#65052f;background:linear-gradient(135deg,#790638,#4b0323);color:#ffedab;box-shadow:0 10px 24px rgba(92,6,42,.22)}
+.historyDialog{width:min(920px,calc(100vw - 36px));height:min(780px,calc(100dvh - 24px));max-height:calc(100dvh - 24px);display:flex;flex-direction:column;overflow:hidden}
+.historyHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex:0 0 auto;padding:26px 28px 20px;border-bottom:1px solid rgba(92,6,42,.14);background:linear-gradient(180deg,#fffaf3,#f8eee7)}
+.historyHeader>button{width:42px;height:42px;border:1px solid rgba(92,6,42,.2);border-radius:12px;background:#fff;color:#750638;font-size:25px;font-weight:800;cursor:pointer}
+.versionTimeline{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;padding:18px 28px max(34px,env(safe-area-inset-bottom));background:#f8f2ed;scrollbar-gutter:stable}
+.versionRow{display:grid;grid-template-columns:54px minmax(0,1fr) auto;gap:15px;align-items:center;position:relative;padding:15px 16px;margin-bottom:12px;border:1px solid rgba(92,6,42,.13);border-radius:17px;background:rgba(255,255,255,.9);box-shadow:0 8px 22px rgba(72,22,42,.06)}
+.timelineMarker{position:relative;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(145deg,#760638,#450320);color:#ffe9a4;font-weight:900;box-shadow:0 7px 16px rgba(92,6,42,.2)}
+.versionInfo{min-width:0;display:grid;gap:4px}
+.versionTitleLine{display:flex;align-items:center;gap:9px;min-width:0}.versionTitleLine strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px;color:#43152a}.versionTitleLine em{flex:0 0 auto;padding:4px 8px;border-radius:999px;background:#f5df92;color:#633d00;font-size:9px;font-style:normal;font-weight:900;text-transform:uppercase}
+.versionInfo>span{color:#806a74;font-size:12px}.versionInfo>small{color:#9c838d;font-size:11px}
+.currentVersionRow{border-color:#be8f2f!important;background:linear-gradient(135deg,#fff8df,#fffef8)!important;box-shadow:0 12px 32px rgba(190,143,47,.22),inset 0 0 0 2px rgba(190,143,47,.18)!important}
+.currentVersionRow .timelineMarker{background:linear-gradient(145deg,#d4a937,#7a4d00);color:#fff7ce}
+.currentVersionBadge{background:#79083a!important;color:#fff5bf!important}
+.versionRow>button{min-height:40px;padding:0 14px;border:1px solid #8b2850;border-radius:11px;background:#fff7fa;color:#7b123f;font-weight:900;cursor:pointer}.versionRow>button:hover{background:#730637;color:#fff0b0}.versionRow>button:disabled{opacity:.55;cursor:wait}
+.emptyHistory{padding:70px 20px;text-align:center;color:#8e737e}
+@media(max-width:720px){.versionDialog{grid-template-columns:1fr}.dialogIcon{width:52px;height:52px}.dialogHeading,.versionNameField,.dialogActions{grid-column:1}.versionRow{grid-template-columns:44px 1fr}.versionRow>button{grid-column:1/-1}.historyDialog{width:calc(100vw - 20px);height:calc(100dvh - 20px);max-height:calc(100dvh - 20px);border-radius:18px}.historyHeader{padding:18px}.versionTimeline{padding:14px 14px 28px}}
+
+.livePreviewNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 2px 0 16px;
+  padding: 13px 14px;
+  border: 1px solid color-mix(in srgb, var(--editor-primary) 24%, transparent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--editor-primary) 7%, var(--editor-surface));
+}
+
+.livePreviewNotice > span {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #28a745;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #28a745 18%, transparent);
+}
+
+.livePreviewNotice div {
+  display: grid;
+  gap: 3px;
+}
+
+.livePreviewNotice strong {
+  font-size: 13px;
+}
+
+.livePreviewNotice small {
+  color: color-mix(in srgb, var(--editor-text) 66%, transparent);
+  line-height: 1.45;
+}
+
+/* Complete, readable inspector panels */
+.editor{--inspector:420px}
+.inspector{scrollbar-gutter:stable;overscroll-behavior:contain}
+.inspectorPanel{gap:14px;padding:20px 18px 28px}
+.inspectorHeader{position:sticky;top:0;z-index:5;margin:-20px -18px 2px;padding:20px 18px 16px;background:linear-gradient(180deg,#fffaf5 84%,rgba(255,250,245,.94));backdrop-filter:blur(8px)}
+.inspectorGroup{overflow:hidden;border:1px solid rgba(92,6,42,.15);border-radius:16px;background:rgba(255,255,255,.76);box-shadow:0 8px 22px rgba(73,20,42,.055)}
+.inspectorGroup>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 14px;cursor:pointer;list-style:none;color:#43152a}
+.inspectorGroup>summary::-webkit-details-marker{display:none}
+.inspectorGroup>summary>div{display:grid;gap:4px;min-width:0}
+.inspectorGroup>summary strong{font-size:14px}
+.inspectorGroup>summary small{color:#8b707a;font-size:11px;line-height:1.4;font-weight:500}
+.inspectorGroup>summary>span{font-size:18px;transition:transform .2s ease}
+.inspectorGroup[open]>summary>span{transform:rotate(180deg)}
+.inspectorGroupBody{display:grid;gap:14px;padding:2px 14px 16px;border-top:1px solid rgba(92,6,42,.09)}
+.inspectorGroupBody>*:first-child{margin-top:14px}
+.field select{width:100%;height:46px;box-sizing:border-box;padding:0 38px 0 13px;border:1px solid rgba(92,6,42,.2);border-radius:11px;background:#fff;color:#2e1420;font:700 14px Arial}
+.toggleField{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:44px;padding:7px 0;color:#582337;font-size:12px;font-weight:800}
+@media(max-width:1300px){.editor{--inspector:380px}}
+
+
+/* Hero slideshow image manager */
+.slideshowNotice{display:grid;gap:4px;padding:13px 14px;border:1px solid rgba(92,6,42,.14);border-radius:14px;background:#fff8e6;color:#4b1b2d}
+.slideshowNotice strong{font-size:14px}.slideshowNotice small{font-size:11px;line-height:1.45;color:#876d76}
+.heroImageList{display:grid;gap:14px}
+.heroImageCard{display:grid;gap:12px;padding:14px;border:1px solid rgba(92,6,42,.15);border-radius:17px;background:#fff;box-shadow:0 8px 22px rgba(72,22,42,.07)}
+.heroImageCardHeader{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.heroImageCardHeader strong{font-size:13px;color:#43152a}
+.heroImageCardHeader button{border:0;background:transparent;color:#981548;font-size:11px;font-weight:900;cursor:pointer}
+.heroImageThumb{height:150px;display:grid;place-items:center;overflow:hidden;border:1px solid rgba(92,6,42,.1);border-radius:13px;background:linear-gradient(135deg,#fbf7f3,#eee3da)}
+.heroImageThumb img{display:block;width:100%;height:100%;object-fit:contain}
+.heroImageThumb span{padding:16px;text-align:center;color:#917680;font-size:12px}
+/* Keep preview captions visibly below the image; never underneath it. */
+.imageCard{display:grid;grid-template-rows:auto auto}
+.imagePreview{position:relative;overflow:hidden}
+.imageCard>div:last-child{position:relative;z-index:2;background:#fff}
+
+/* FINAL FIX — one real independent scrollbar for the entire right inspector.
+   The inspector itself is the viewport; its complete content remains in normal flow. */
+.editor{
+  height:100dvh !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+.application{
+  height:calc(100dvh - 68px) !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+  align-items:stretch !important;
+}
+.inspector{
+  position:relative !important;
+  align-self:stretch !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+  -webkit-overflow-scrolling:touch;
+}
+.inspectorPanel{
+  display:grid;
+  align-content:start;
+  box-sizing:border-box;
+  width:100%;
+  height:auto !important;
+  min-height:max-content !important;
+  max-height:none !important;
+  overflow:visible !important;
+  padding-bottom:120px !important;
+}
+.inspectorHeader{
+  position:static !important;
+  top:auto !important;
+  z-index:auto !important;
+  margin:0 !important;
+  padding:0 0 17px !important;
+  background:transparent !important;
+  backdrop-filter:none !important;
+}
+.inspector::-webkit-scrollbar{width:12px}
+.inspector::-webkit-scrollbar-track{background:rgba(92,6,42,.06)}
+.inspector::-webkit-scrollbar-thumb{background:rgba(92,6,42,.42);border:3px solid transparent;border-radius:999px;background-clip:padding-box}
+.inspector::-webkit-scrollbar-thumb:hover{background:rgba(92,6,42,.62);border:3px solid transparent;background-clip:padding-box}
+@media(max-width:980px){
+  .editor{height:100dvh !important;min-height:0 !important;overflow:hidden !important}
+  .application{height:calc(100dvh - 68px) !important;min-height:0 !important;overflow:hidden !important}
+  .inspector{height:100% !important;min-height:0 !important;overflow-y:auto !important;overflow-x:hidden !important}
+  .inspectorPanel{height:auto !important;min-height:max-content !important;max-height:none !important;overflow:visible !important}
+}
+
+/* QA — right inspector must be an independent, scrollable viewport. */
+.application{
+  min-height:0 !important;
+}
+.inspector{
+  position:static !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:calc(100dvh - 68px) !important;
+  overflow-y:scroll !important;
+  overflow-x:hidden !important;
+  contain:size layout paint;
+  touch-action:pan-y;
+}
+.inspectorPanel{
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:visible !important;
+}
+@supports not (height:100dvh){
+  .inspector{max-height:calc(100vh - 68px) !important}
+}
+
+/* Mobile visual-editor controls */
+.mobilePreset{display:flex;align-items:center;gap:8px;margin-left:auto;color:#555d67;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.mobilePreset select{height:32px;min-width:190px;padding:0 32px 0 10px;border:1px solid #b4bbc5;border-radius:7px;background:#fff;color:#343a43;font-size:11px;font-weight:800}
+@media(max-width:1180px){.mobilePreset span{display:none}.mobilePreset select{min-width:150px}}
+
+.removeImageButton {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 10px;
+  border: 1px solid color-mix(in srgb, var(--editor-primary) 32%, transparent);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--editor-primary);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.removeImageButton:hover {
+  background: color-mix(in srgb, var(--editor-primary) 8%, transparent);
+}
+
+
+/* Universal storefront text editor */
+.universalTextList{display:grid;gap:12px;margin-top:12px}
+.universalTextItem{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;padding:12px;border:1px solid color-mix(in srgb,var(--editor-primary) 18%,transparent);border-radius:14px;background:color-mix(in srgb,var(--editor-surface) 96%,var(--editor-primary) 4%)}
+.universalTextItem>div{min-width:0;display:grid;gap:7px}
+.universalTextItem small{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:color-mix(in srgb,var(--editor-text) 55%,transparent)}
+.universalTextItem textarea{box-sizing:border-box;width:100%;min-height:58px;resize:vertical;padding:10px 12px;border:1px solid color-mix(in srgb,var(--editor-primary) 22%,transparent);border-radius:10px;background:var(--editor-surface);color:var(--editor-text);font:600 13px/1.45 var(--editor-font)}
+.universalTextItem textarea:focus{outline:2px solid color-mix(in srgb,var(--editor-accent) 70%,transparent);border-color:var(--editor-accent)}
+.universalTextLocate{width:38px;height:38px;border:0;border-radius:10px;background:var(--editor-primary);color:#fff;font-size:19px;font-weight:900;cursor:pointer}
+.universalTextReset{justify-self:start;border:0;background:transparent;color:var(--editor-primary);font-size:11px;font-weight:900;text-decoration:underline;cursor:pointer;padding:0}
+.universalTextEmpty{padding:18px;text-align:center;color:color-mix(in srgb,var(--editor-text) 60%,transparent)}
+
+/* Inline text editing: the application shell never scrolls when locating preview text. */
+.previewArea,.previewWorkspace,.previewStage,.previewViewport{min-height:0;overscroll-behavior:contain}
+.livePreview{overscroll-behavior:contain}
+
+/* Responsive preview shell: the scaled frame occupies its real visual size,
+   so desktop, tablet and phone previews always stay inside the editor stage. */
+.frameScaleShell{
+  position:relative;
+  flex:0 0 auto;
+  margin:0 auto;
+  transition:width .2s ease,height .2s ease;
+}
+.frameScaleShell>.deviceFrame{
+  position:absolute;
+  top:0;
+  left:0;
+  margin:0;
+}
+.fitButton{
+  width:auto!important;
+  min-width:58px;
+  padding:0 9px!important;
+  font-size:10px!important;
+}
+.stageScroller{
+  box-sizing:border-box;
+  min-width:0;
+  overflow:auto;
+  align-items:flex-start;
+  justify-content:center;
+  padding:24px 20px 70px;
+}
+@media(max-width:1300px){
+  .stageScroller{padding-left:16px;padding-right:16px}
+  .zoomControl{gap:5px}
+  .zoomControl input{width:82px}
+}
+/* The real iframe width follows the active preset, including 360/390/430px phones. */
+.deviceFrame .livePreview{
+  width:var(--preview-width)!important;
+  min-width:var(--preview-width)!important;
+}
+
+
+/* FINAL PREVIEW SCROLL FIX — the device window is a real independent browser viewport.
+   The storefront scrolls inside the frame, while the editor shell and inspector stay fixed. */
+.previewViewport{
+  position:relative;
+  width:var(--preview-width);
+  min-width:var(--preview-width);
+  overflow:hidden;
+  border-radius:0 0 7px 7px;
+  background:#fff;
+  isolation:isolate;
+}
+.previewViewport .livePreview{
+  display:block!important;
+  width:var(--preview-width)!important;
+  min-width:var(--preview-width)!important;
+  height:100%!important;
+  min-height:0!important;
+  border:0!important;
+  overflow:auto!important;
+  scrollbar-gutter:stable;
+  overscroll-behavior:contain;
+}
+.deviceFrame{overflow:hidden!important}
+.stageScroller{overscroll-behavior:contain;scrollbar-gutter:stable both-edges}
+
+/* REAL PREVIEW SCROLL FIX — scrolling belongs to the iframe document.
+   Do not clip the browser viewport or cover its native scrollbar. */
+.previewViewport{
+  overflow:visible!important;
+  min-height:0!important;
+}
+.previewViewport .livePreview{
+  display:block!important;
+  overflow:auto!important;
+  pointer-events:auto!important;
+  touch-action:pan-x pan-y!important;
+}
+.deviceFrame{
+  overflow:visible!important;
+}
+.browserChrome{
+  position:relative;
+  z-index:2;
+}
+
+/* FULL-PAGE DEVICE FIT — the iframe expands to the complete storefront document.
+   The device shell is then scaled as one object to fit both the available width and height. */
+.previewViewport{
+  overflow:hidden!important;
+  height:auto;
+}
+.previewViewport .livePreview{
+  overflow:hidden!important;
+  min-height:0!important;
+  scrollbar-width:none;
+}
+.previewViewport .livePreview::-webkit-scrollbar{display:none}
+.deviceFrame{overflow:hidden!important}
+.frameScaleShell{max-width:100%;max-height:100%}
+
+
+/* FIXED BROWSER VIEWPORT — keep the selected device width and a normal viewport height.
+   The real storefront scrolls vertically inside the iframe; the page height never stretches the device frame. */
+.previewViewport{
+  position:relative!important;
+  overflow:hidden!important;
+  height:var(--preview-height)!important;
+  min-height:var(--preview-height)!important;
+  max-height:var(--preview-height)!important;
+  background:#fff!important;
+}
+.previewViewport .livePreview{
+  display:block!important;
+  width:var(--preview-width)!important;
+  min-width:var(--preview-width)!important;
+  height:var(--preview-height)!important;
+  min-height:var(--preview-height)!important;
+  max-height:var(--preview-height)!important;
+  overflow:auto!important;
+  scrollbar-width:auto!important;
+  overscroll-behavior:contain!important;
+}
+.previewViewport .livePreview::-webkit-scrollbar{display:block!important}
+.deviceFrame{overflow:hidden!important}
+.frameScaleShell{max-height:none!important}
+
+/* FINAL EDITOR VIEWPORT FIT — the complete visual editor is pinned to the
+   browser viewport. The document itself never scrolls; only the workspace,
+   preview and inspector own scrollbars. */
+.standalone{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100dvh!important;
+  min-height:0!important;
+  max-height:100dvh!important;
+  display:grid!important;
+  grid-template-rows:68px minmax(0,1fr)!important;
+  overflow:hidden!important;
+}
+.standalone .appBar{
+  height:68px!important;
+  min-height:68px!important;
+  max-height:68px!important;
+}
+.standalone .application{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:hidden!important;
+}
+.standalone .toolRail,
+.standalone .stageArea,
+.standalone .inspector{
+  min-height:0!important;
+  height:100%!important;
+  max-height:none!important;
+}
+.standalone .toolRail{
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+}
+.standalone .stageArea{
+  overflow:hidden!important;
+}
+.standalone .stageScroller{
+  height:100%!important;
+  min-height:0!important;
+  max-height:100%!important;
+  overflow:auto!important;
+}
+.standalone .inspector{
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  contain:layout paint!important;
+}
+
+@supports not (height:100dvh){
+  .standalone{
+    height:100vh!important;
+    max-height:100vh!important;
+  }
+}
+
+@media (max-height:820px){
+  .standalone{
+    grid-template-rows:60px minmax(0,1fr)!important;
+  }
+  .standalone .appBar{
+    height:60px!important;
+    min-height:60px!important;
+    max-height:60px!important;
+  }
+  .standalone .application{
+    grid-template-columns:68px minmax(0,1fr) var(--inspector)!important;
+  }
+  .standalone .stageArea{
+    grid-template-rows:44px minmax(0,1fr)!important;
+  }
+  .standalone .toolRail{
+    padding:8px 6px!important;
+    gap:4px!important;
+  }
+  .standalone .toolButton{
+    height:54px!important;
+  }
+  .standalone .stageScroller{
+    padding-top:14px!important;
+    padding-bottom:20px!important;
+  }
+}
+
+.menuOrderActions {
+  display: flex;
+  gap: 6px;
+}
+
+.menuOrderActions button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(92, 11, 45, 0.2);
+  border-radius: 10px;
+  background: #fff;
+  color: #5c0b2d;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.menuOrderActions button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.addMenuButton {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(92, 11, 45, 0.22);
+  border-radius: 16px;
+  background: #fff7ec;
+  color: #5c0b2d;
+  font-weight: 900;
+  cursor: pointer;
+  margin: 0 0 14px;
+}
+
+.addMenuButton:hover {
+  background: #ffe9bd;
+}
+
+.menuDeleteButton {
+  border-color: #b3263a !important;
+  background: #9b1c27 !important;
+  color: #fff !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+}
+
+.versionActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.versionActions button {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid #8b2850;
+  border-radius: 11px;
+  background: #fff7fa;
+  color: #7b123f;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.versionActions button:hover {
+  background: #730637;
+  color: #fff0b0;
+}
+
+.versionActions button:disabled {
+  opacity: .55;
+  cursor: wait;
+}
+
+.versionDeleteButton {
+  border-color: #b3263a !important;
+  background: #a61924 !important;
+  color: #fff !important;
+}
+
+@media(max-width:720px){
+  .versionActions{grid-column:1/-1;justify-content:stretch}
+  .versionActions button{width:100%}
+}
+
+
+.deletedLogoPlaceholder{
+  display:grid;
+  place-items:center;
+  width:150px;
+  height:50px;
+  border:1px dashed rgba(92,6,42,.35);
+  border-radius:12px;
+  color:#7f5d68;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  background:rgba(255,255,255,.55);
+}
+.removeImageButton:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}

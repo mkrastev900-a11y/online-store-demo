@@ -1,0 +1,26 @@
+.storefrontRoot {
+  display: contents;
+}
+
+.routeScene {
+  min-width: 0;
+  animation: storeRouteEnter 380ms both cubic-bezier(.16, 1, .3, 1);
+  transform-origin: 50% 0;
+}
+
+@keyframes storeRouteEnter {
+  from {
+    opacity: .3;
+    filter: blur(2px);
+    transform: translateY(9px) scale(.997);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .routeScene { animation: none; }
+}

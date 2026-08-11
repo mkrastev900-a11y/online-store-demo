@@ -1,0 +1,276 @@
+.wrapper {
+  display: grid;
+  gap: 30px;
+}
+
+.message {
+  padding: 14px 18px;
+  border: 1px solid #e6d09d;
+  background: #fff5d9;
+  color: #5d1732;
+  font-size: 14px;
+}
+
+.section {
+  padding: 32px;
+  border: 1px solid #eadce2;
+  background: #fff;
+}
+
+.sectionHeader {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sectionHeader span {
+  color: var(--brand-primary);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .18em;
+}
+
+.sectionHeader h2 {
+  margin: 6px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.sectionHeader > a,
+.historyHeaderActions a {
+  color: var(--brand-primary);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.loading,
+.empty {
+  padding: 38px 20px;
+  text-align: center;
+  background: #fffaf7;
+  color: #806a74;
+}
+
+.empty a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--brand-primary);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.favoriteGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.favoriteCard {
+  min-width: 0;
+  background: #fffaf7;
+}
+
+.favoriteImage {
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #eee5e1;
+}
+
+.favoriteImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+
+.favoriteCard:hover img {
+  transform: scale(1.025);
+}
+
+.favoriteInfo {
+  padding: 14px;
+}
+
+.favoriteInfo > span,
+.historyInfo > span {
+  color: #8a707b;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.favoriteInfo > a {
+  min-height: 48px;
+  margin: 6px 0 8px;
+  display: block;
+  color: #29161f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.favoriteInfo > strong,
+.historyInfo > strong {
+  color: var(--brand-primary);
+  font-size: 14px;
+}
+
+.favoriteActions {
+  margin-top: 13px;
+  display: grid;
+  gap: 7px;
+}
+
+.favoriteActions button {
+  min-height: 39px;
+  border: 0;
+  background: var(--brand-primary);
+  color: #f4d77f;
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.favoriteActions button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.favoriteActions .removeButton {
+  background: #eee3e7;
+  color: var(--brand-primary);
+}
+
+.historyHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.historyHeaderActions button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #967985;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.historyList {
+  display: grid;
+  gap: 10px;
+}
+
+.historyItem {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #eee3e7;
+  background: #fffaf7;
+}
+
+.historyItem img {
+  width: 72px;
+  height: 88px;
+  display: block;
+  object-fit: cover;
+}
+
+.historyInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.historyInfo > a {
+  margin: 4px 0 5px;
+  color: #29161f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  text-decoration: none;
+}
+
+.historyInfo > small {
+  margin-top: 7px;
+  color: #917b85;
+  font-size: 11px;
+}
+
+.viewCount {
+  min-width: 62px;
+  text-align: center;
+}
+
+.viewCount strong {
+  display: block;
+  color: var(--brand-primary);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.viewCount span {
+  color: #927b85;
+  font-size: 10px;
+}
+
+@media (max-width: 980px) {
+  .favoriteGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .section {
+    padding: 22px 16px;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .historyHeaderActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .historyItem {
+    grid-template-columns: 62px 1fr;
+  }
+
+  .historyItem img {
+    width: 62px;
+    height: 78px;
+  }
+
+  .viewCount {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-align: left;
+  }
+
+  .viewCount strong {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 420px) {
+  .favoriteGrid {
+    grid-template-columns: 1fr;
+  }
+}

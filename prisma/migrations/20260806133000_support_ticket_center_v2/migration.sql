@@ -1,0 +1,10 @@
+CREATE TYPE "SupportTicketPriority" AS ENUM ('LOW','NORMAL','HIGH','URGENT');
+ALTER TABLE "SupportTicket" ADD COLUMN "priority" "SupportTicketPriority" NOT NULL DEFAULT 'NORMAL', ADD COLUMN "assignedAdminId" INTEGER, ADD COLUMN "lastCustomerMessageAt" TIMESTAMP(3), ADD COLUMN "lastAdminMessageAt" TIMESTAMP(3), ADD COLUMN "adminReadAt" TIMESTAMP(3), ADD COLUMN "customerReadAt" TIMESTAMP(3);
+UPDATE "SupportTicket" SET "lastCustomerMessageAt" = "createdAt" WHERE "lastCustomerMessageAt" IS NULL;
+CREATE TABLE "SupportTicketInternalNote" ("id" SERIAL NOT NULL, "ticketId" INTEGER NOT NULL, "authorId" INTEGER NOT NULL, "body" TEXT NOT NULL, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, CONSTRAINT "SupportTicketInternalNote_pkey" PRIMARY KEY ("id"));
+CREATE INDEX "SupportTicket_assignedAdminId_status_idx" ON "SupportTicket"("assignedAdminId", "status");
+CREATE INDEX "SupportTicket_priority_status_updatedAt_idx" ON "SupportTicket"("priority", "status", "updatedAt");
+CREATE INDEX "SupportTicketInternalNote_ticketId_createdAt_idx" ON "SupportTicketInternalNote"("ticketId", "createdAt");
+ALTER TABLE "SupportTicket" ADD CONSTRAINT "SupportTicket_assignedAdminId_fkey" FOREIGN KEY ("assignedAdminId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "SupportTicketInternalNote" ADD CONSTRAINT "SupportTicketInternalNote_ticketId_fkey" FOREIGN KEY ("ticketId") REFERENCES "SupportTicket"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "SupportTicketInternalNote" ADD CONSTRAINT "SupportTicketInternalNote_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

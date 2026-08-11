@@ -1,0 +1,8 @@
+{
+  "_meta": {
+    "locale": "es",
+    "module": "ai-help",
+    "status": "foundation",
+    "note": "Keys are migrated incrementally; Bulgarian remains the safe fallback."
+  }
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "SupportRmaItem" ADD COLUMN "restockedQuantity" INTEGER NOT NULL DEFAULT 0;

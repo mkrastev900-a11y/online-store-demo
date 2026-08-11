@@ -1,0 +1,8 @@
+{
+  "_meta": {
+    "locale": "bg",
+    "module": "finance",
+    "status": "foundation",
+    "note": "Keys are migrated incrementally; Bulgarian remains the safe fallback."
+  }
+}

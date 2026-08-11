@@ -1,0 +1,42 @@
+{
+  "nextSectionId": 1006,
+  "sections": [
+    {
+      "id": 1,
+      "name": "Дамско",
+      "slug": "women",
+      "eyebrow": "ДАМСКА МОДА",
+      "description": "Елегантни и ежедневни модели.",
+      "baseAudience": "WOMEN",
+      "isSystem": true,
+      "isActive": true,
+      "sortOrder": 10
+    },
+    {
+      "id": 2,
+      "name": "Мъжко",
+      "slug": "men",
+      "eyebrow": "МЪЖКА МОДА",
+      "description": "Изчистени и удобни мъжки модели.",
+      "baseAudience": "MEN",
+      "isSystem": true,
+      "isActive": true,
+      "sortOrder": 20
+    },
+    {
+      "id": 3,
+      "name": "Детско",
+      "slug": "kids",
+      "eyebrow": "ДЕТСКА МОДА",
+      "description": "Практични предложения за деца.",
+      "baseAudience": "KIDS",
+      "isSystem": true,
+      "isActive": true,
+      "sortOrder": 30
+    }
+  ],
+  "categorySections": {
+    "5": 3
+  },
+  "productSections": {}
+}

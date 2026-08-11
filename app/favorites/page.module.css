@@ -1,0 +1,27 @@
+.main {
+  min-height: calc(100vh - 92px);
+  padding: 58px max(24px, calc((100% - 1340px) / 2)) 100px;
+  background: #fff9f5;
+}
+
+.heading {
+  margin-bottom: 36px;
+}
+
+.heading span {
+  color: var(--brand-primary);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .2em;
+}
+
+.heading h1 {
+  margin: 8px 0 10px;
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 7vw, 76px);
+  font-weight: 500;
+}
+
+.heading p {
+  color: #79636c;
+}

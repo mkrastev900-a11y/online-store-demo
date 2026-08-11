@@ -1,0 +1,252 @@
+.main {
+  min-height: 70vh;
+  padding: clamp(58px, 7vw, 96px) 24px clamp(72px, 9vw, 120px);
+  background:
+    radial-gradient(circle at 85% 4%, rgba(206, 158, 69, 0.12), transparent 25%),
+    var(--theme-bg);
+  color: var(--theme-text);
+}
+
+.hero,
+.formSection,
+.infoSection,
+.quickInfo {
+  width: min(1180px, 100%);
+  margin-inline: auto;
+}
+
+.hero {
+  max-width: 840px;
+  margin-bottom: clamp(48px, 7vw, 78px);
+  text-align: center;
+}
+
+.eyebrow {
+  color: #9a6b1b;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.hero h1 {
+  margin: 16px 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 7vw, 78px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.03;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--theme-text-muted);
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.75;
+}
+
+.formSection,
+.infoSection {
+  margin-bottom: clamp(62px, 8vw, 100px);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.sectionHeading > span {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: #ffe587;
+  font-weight: 900;
+}
+
+.sectionHeading h2 {
+  margin: -6px 0 5px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4.2vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.sectionHeading p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  line-height: 1.55;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.infoCard {
+  min-height: 270px;
+  padding: 28px 24px;
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface);
+}
+
+.cardIcon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 26px;
+  place-items: center;
+  border: 1px solid #d0a859;
+  border-radius: 50%;
+  color: #8a5a0e;
+  font-size: 23px;
+}
+
+.infoCard h3 {
+  margin: 0 0 12px;
+  font-size: 19px;
+}
+
+.infoCard a,
+.infoCard strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--theme-text);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.infoCard a:hover {
+  color: #9a6b1b;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.infoCard p {
+  margin: 15px 0 0;
+  color: var(--theme-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.emailList {
+  display: grid;
+  gap: 16px;
+}
+
+.emailList div {
+  display: grid;
+  gap: 4px;
+}
+
+.emailList strong {
+  margin: 0;
+  font-size: 14px;
+}
+
+.emailList p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.emailList a {
+  margin: 0;
+}
+
+.quickInfo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--theme-border);
+  border-bottom: 1px solid var(--theme-border);
+}
+
+.quickInfo article {
+  padding: 30px clamp(18px, 3vw, 34px);
+  border-right: 1px solid var(--theme-border);
+}
+
+.quickInfo article:last-child {
+  border-right: 0;
+}
+
+.quickInfo span {
+  color: #9a6b1b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.quickInfo h3 {
+  margin: 10px 0 7px;
+  font-size: 18px;
+}
+
+.quickInfo p {
+  margin: 0;
+  color: var(--theme-text-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .infoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .infoCard {
+    min-height: 235px;
+  }
+}
+
+@media (max-width: 680px) {
+  .main {
+    padding-inline: 16px;
+  }
+
+  .hero {
+    text-align: left;
+  }
+
+  .hero p {
+    margin: 0;
+  }
+
+  .sectionHeading {
+    gap: 12px;
+  }
+
+  .sectionHeading > span {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .infoGrid,
+  .quickInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .infoCard {
+    min-height: 0;
+  }
+
+  .quickInfo article {
+    border-right: 0;
+    border-bottom: 1px solid var(--theme-border);
+  }
+
+  .quickInfo article:last-child {
+    border-bottom: 0;
+  }
+}

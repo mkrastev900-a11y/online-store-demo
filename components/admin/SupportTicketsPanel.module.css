@@ -1,0 +1,188 @@
+.shell{display:grid;grid-template-columns:minmax(280px,340px) minmax(0,1fr) 220px;gap:18px;min-height:650px;align-items:start}.list,.detail,.statusMenu{border:1px solid rgba(105,9,47,.12);border-radius:18px;background:#fffdfb;box-shadow:0 14px 38px rgba(70,20,39,.06)}.list{overflow:hidden;min-height:650px}.listHeader{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid rgba(105,9,47,.1);background:linear-gradient(180deg,rgba(105,9,47,.045),rgba(255,255,255,0))}.listHeader span{font-weight:900;color:var(--brand-primary);letter-spacing:.08em;text-transform:uppercase;font-size:11px}.listHeader b{display:grid;place-items:center;min-width:30px;height:30px;padding:0 8px;border-radius:999px;background:var(--brand-primary);color:#f6dc8d;font-size:12px}.ticket{position:relative;width:100%;display:grid;gap:5px;padding:16px 70px 16px 16px;border:0;border-bottom:1px solid rgba(105,9,47,.08);background:transparent;text-align:left;cursor:pointer;transition:background .18s ease,transform .18s ease}.ticket:hover{background:rgba(105,9,47,.04)}.ticket[data-active=true]{background:rgba(105,9,47,.08);box-shadow:inset 4px 0 0 var(--brand-primary)}.ticket b{color:var(--brand-primary)}.ticket span{font-weight:800}.ticket small{color:#8f727d}.ticket em{position:absolute;right:12px;top:14px;font-size:9px;font-style:normal;color:#8f6877}.emptyList{padding:34px 20px;text-align:center;color:#8f727d}.detail{padding:24px;min-height:650px}.detail header{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid rgba(105,9,47,.1);padding-bottom:18px}.detail header span{font-size:11px;font-weight:900;color:var(--brand-primary)}.detail h2{margin:6px 0;font:500 30px Georgia,serif}.detail header p{margin:0;color:#8f727d}.detail select{height:44px;border:1px solid rgba(105,9,47,.2);border-radius:12px;padding:0 12px;background:#fff}.order{margin:16px 0;padding:12px;border-radius:12px;background:rgba(202,153,65,.1);font-size:13px}.messages{display:grid;gap:12px;margin:18px 0}.messages article{max-width:85%;padding:15px;border-radius:14px;background:#f4ecef}.messages article[data-admin=true]{margin-left:auto;background:rgba(105,9,47,.09)}.messages p{white-space:pre-wrap;margin:6px 0}.messages small{color:#8f727d}.files{display:grid;gap:8px;margin:20px 0}.files a{display:flex;justify-content:space-between;padding:12px;border:1px solid rgba(105,9,47,.12);border-radius:10px;color:var(--brand-primary);font-weight:800}.files small{color:#8f727d}.reply{display:grid;gap:10px;margin-top:22px}.reply textarea{min-height:110px;padding:14px;border:1px solid rgba(105,9,47,.18);border-radius:12px}.reply button{justify-self:end;padding:13px 22px;border:0;border-radius:12px;background:var(--brand-primary);color:#f6dc8d;font-weight:900}.statusMenu{position:sticky;top:22px;overflow:hidden}.statusMenuTitle{padding:18px;border-bottom:1px solid rgba(105,9,47,.1);background:linear-gradient(135deg,rgba(105,9,47,.07),rgba(202,153,65,.08))}.statusMenuTitle span{display:block;font:600 22px Georgia,serif;color:var(--brand-primary)}.statusMenuTitle small{display:block;margin-top:4px;color:#8f727d}.statusMenu nav{display:grid;padding:10px}.statusMenu button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 12px;border:0;border-radius:12px;background:transparent;color:#4a2433;font-weight:800;text-align:left;cursor:pointer;transition:background .18s ease,color .18s ease,transform .18s ease}.statusMenu button:hover{background:rgba(105,9,47,.05);transform:translateX(-2px)}.statusMenu button[data-active=true]{background:linear-gradient(135deg,var(--brand-primary),#3b0018);color:#f6dc8d;box-shadow:0 8px 18px rgba(105,9,47,.16)}.statusMenu button b{display:grid;place-items:center;min-width:28px;height:28px;padding:0 7px;border-radius:999px;background:rgba(255,255,255,.75);color:var(--brand-primary);font-size:11px}.statusMenu button[data-active=true] b{background:rgba(246,220,141,.18);color:#f6dc8d}.emptyDetail{min-height:560px;display:grid;place-content:center;text-align:center;color:#8f727d}.emptyDetail span{font:600 28px Georgia,serif;color:#4a2433}.emptyDetail p{max-width:430px}.messageHead{display:flex;align-items:center;justify-content:space-between;gap:12px}.emailBadge{padding:5px 8px;border-radius:999px;background:rgba(202,153,65,.15);color:#7b5416;font-size:9px;font-weight:900}.emailBadge[data-status=FAILED]{background:rgba(170,26,48,.12);color:#a21f36}.reply label{font-weight:900;color:var(--brand-primary)}.reply>p{margin:0;color:#8f727d;font-size:12px}.replyActions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}.replyActions button{padding:13px 20px;border-radius:12px;font-weight:900;cursor:pointer}.replyActions button:disabled{opacity:.55;cursor:not-allowed}.internalButton{border:1px solid rgba(105,9,47,.24);background:#fff;color:var(--brand-primary)}.emailButton{border:0;background:linear-gradient(135deg,var(--brand-primary),#3b0018);color:#f6dc8d;box-shadow:0 10px 22px rgba(105,9,47,.18)}
+@media(max-width:1180px){.shell{grid-template-columns:300px minmax(0,1fr)}.statusMenu{grid-column:1/-1;grid-row:1;position:static}.statusMenu nav{grid-template-columns:repeat(5,minmax(0,1fr))}.statusMenuTitle{display:none}.statusMenu button{justify-content:center;text-align:center}.statusMenu button b{margin-left:6px}.list{grid-column:1}.detail{grid-column:2}}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.statusMenu,.list,.detail{grid-column:1}.statusMenu nav{grid-template-columns:repeat(2,minmax(0,1fr))}.list{max-height:420px;min-height:0;overflow:auto}.detail{min-height:500px}}
+.searchInput{width:calc(100% - 24px);margin:10px 12px 14px;padding:11px 13px;border:1px solid rgba(128,92,50,.28);border-radius:12px;background:var(--surface,#fff);color:inherit}.adminControls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:14px;border:1px solid rgba(128,92,50,.18);border-radius:16px;margin-bottom:16px}.adminControls label{display:grid;gap:6px;font-size:.78rem;font-weight:700}.adminControls select{padding:10px;border-radius:10px;border:1px solid rgba(128,92,50,.3);background:var(--surface,#fff);color:inherit}.order div{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.order div span{padding:5px 8px;border-radius:999px;background:rgba(128,92,50,.09);font-size:.78rem}.internalNotes{margin-top:18px;padding:16px;border:1px solid rgba(128,92,50,.2);border-radius:16px}.internalNotes h3{margin:0 0 12px}.internalNotes p{display:grid;gap:4px;padding:10px 12px;background:rgba(128,92,50,.07);border-radius:12px}.internalNotes p b{font-size:.8rem}.internalNotes p small{opacity:.65}.internalNotes textarea{width:100%;min-height:90px;padding:12px;border-radius:12px;border:1px solid rgba(128,92,50,.25);background:var(--surface,#fff);color:inherit}.internalNotes button{margin-top:10px;padding:10px 16px;border:0;border-radius:999px;background:var(--brand-primary,#651f32);color:#fff;font-weight:800}@media(max-width:1000px){.adminControls{grid-template-columns:1fr}}
+
+.hiddenFile{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important}.attachButton{justify-self:start!important;border:1px solid rgba(105,9,47,.24)!important;background:#fff!important;color:var(--brand-primary)!important;box-shadow:none!important}.replyFileList{display:grid;gap:6px}.replyFileList span{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border:1px solid rgba(105,9,47,.12);border-radius:10px;font-size:12px}.replyFileList button{padding:0!important;width:26px;height:26px;border:0!important;background:transparent!important;color:#a21f36!important;box-shadow:none!important;font-size:18px}.messages article .messageFiles{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.messageFiles a{font-size:11px;font-weight:800;color:var(--brand-primary)}
+.rmaCard{display:grid;gap:16px;margin:18px 0;padding:18px;border:1px solid rgba(105,9,47,.18);border-radius:14px;background:linear-gradient(135deg,rgba(105,9,47,.035),rgba(202,153,65,.06))}.rmaTitle{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.rmaTitle span{display:block;color:var(--brand-primary);font-size:9px;font-weight:950;letter-spacing:.12em}.rmaTitle h3{margin:4px 0 0;font:600 24px Georgia,serif}.rmaTitle>b{padding:7px 10px;border-radius:999px;background:var(--brand-primary);color:#f6dc8d;font-size:10px}.rmaMeta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.rmaMeta p{display:grid;gap:3px;margin:0;padding:10px;border:1px solid rgba(105,9,47,.1);background:#fff}.rmaMeta span{color:#8f727d;font-size:10px}.rmaMeta strong{font-size:12px}.rmaCustomerNote{margin:0;padding:12px;border-left:3px solid #ca9941;background:rgba(202,153,65,.08);white-space:pre-wrap}.rmaAdminGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.rmaAdminGrid label,.rmaDecision{display:grid;gap:6px;color:#4a2433;font-size:11px;font-weight:900}.rmaAdminGrid input,.rmaAdminGrid select{width:100%;height:42px;border:1px solid rgba(105,9,47,.2);border-radius:10px;padding:0 10px;background:#fff}.rmaProducts{display:grid;gap:8px}.rmaProducts h4{margin:0}.rmaProducts>div{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:14px;align-items:center;padding:10px;border:1px solid rgba(105,9,47,.1);background:#fff}.rmaProducts>div>span{display:grid;gap:3px}.rmaProducts small{color:#8f727d}.rmaProducts label{display:grid;grid-template-columns:auto 90px;gap:8px;align-items:center;font-size:10px;font-weight:900}.rmaProducts select{height:38px;border:1px solid rgba(105,9,47,.2);border-radius:9px;background:#fff}.rmaDecision textarea{min-height:90px;padding:12px;border:1px solid rgba(105,9,47,.18);border-radius:10px;background:#fff;resize:vertical}.rmaSave{justify-self:end;padding:12px 18px;border:0;border-radius:11px;background:var(--brand-primary);color:#f6dc8d;font-weight:900;cursor:pointer}.rmaSave:disabled{opacity:.55}@media(max-width:760px){.rmaMeta,.rmaAdminGrid{grid-template-columns:1fr}.rmaProducts>div{grid-template-columns:1fr}.rmaProducts label{grid-template-columns:auto 110px}}
+
+/* Final simplified customer-service workspace */
+.simpleStatusControl{display:flex;justify-content:flex-end;margin:14px 0}.simpleStatusControl label{display:grid;gap:6px;min-width:220px;color:#4a2433;font-size:11px;font-weight:900}.simpleStatusControl select{width:100%}
+.rmaSimpleActions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px}.rmaSimpleActions button{padding:11px 14px;border:1px solid rgba(105,9,47,.22);border-radius:10px;background:#fff;color:var(--brand-primary);font-weight:900;cursor:pointer}.rmaSimpleActions button[data-kind=approve],.rmaSimpleActions button[data-kind=finish]{border-color:var(--brand-primary);background:var(--brand-primary);color:#f6dc8d}.rmaSimpleActions button[data-kind=reject]{border-color:#a21f36;color:#a21f36}.rmaSimpleActions button:disabled{opacity:.55;cursor:not-allowed}
+
+
+
+/* FINAL MOBILE/TABLET QA — prevent controls, messages and RMA actions from
+   escaping narrow admin viewports. */
+@media(max-width:620px){
+  .detail{padding:16px;min-width:0}
+  .detail header{flex-direction:column;align-items:stretch}
+  .detail h2{font-size:24px;overflow-wrap:anywhere}
+  .messages article{max-width:100%;min-width:0;overflow-wrap:anywhere}
+  .files a,.replyFileList span{min-width:0;overflow-wrap:anywhere}
+  .simpleStatusControl{justify-content:stretch}
+  .simpleStatusControl label{width:100%;min-width:0}
+  .rmaTitle{flex-direction:column}
+  .rmaTitle>b{align-self:flex-start}
+  .rmaProducts label{grid-template-columns:1fr}
+  .rmaSimpleActions{display:grid;grid-template-columns:1fr;justify-content:stretch}
+  .rmaSimpleActions button,.rmaSave,.replyActions button{width:100%}
+  .replyActions{display:grid;grid-template-columns:1fr}
+}
+
+/* V1.0.5 — support workspace cleanup */
+.shell{grid-template-columns:minmax(280px,320px) minmax(0,1fr);grid-template-rows:auto auto;gap:16px;align-items:start}
+.statusMenu{grid-column:1/-1;grid-row:1;position:sticky;top:0;z-index:5;border-radius:16px}
+.statusMenu nav{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:8px}
+.statusMenu button{justify-content:center;min-height:48px}
+.list{grid-column:1;grid-row:2;position:sticky;top:72px;max-height:calc(100vh - 105px);min-height:560px;overflow:auto}
+.detail{grid-column:2;grid-row:2;min-width:0;min-height:560px;padding:22px}
+.detail header{align-items:flex-start;padding-bottom:14px}
+.detail h2{font-size:clamp(24px,2.2vw,34px);line-height:1.05}
+.simpleStatusControl{margin:14px 0;display:flex;justify-content:flex-start}
+.simpleStatusControl label{display:grid;grid-template-columns:auto minmax(180px,240px);align-items:center;gap:12px;font-size:12px;font-weight:900;color:#4a2433}
+.simpleStatusControl select{width:100%}
+.order{margin:12px 0 16px;padding:14px 16px}
+.rmaCard{gap:14px;margin:14px 0 20px;padding:16px}
+.rmaTitle h3{font-size:22px;overflow-wrap:anywhere}
+.rmaMeta{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rmaAdminGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rmaProducts>div{border-radius:10px}
+.rmaSimpleActions{display:flex;flex-wrap:wrap;gap:9px;padding-top:2px}
+.rmaSimpleActions button{min-height:42px;padding:0 16px;border:1px solid rgba(105,9,47,.18);border-radius:10px;background:#fff;color:var(--brand-primary);font-weight:900;cursor:pointer}
+.rmaSimpleActions button[data-kind="approve"],.rmaSimpleActions button[data-kind="finish"]{background:var(--brand-primary);color:#f6dc8d}
+.rmaSimpleActions button[data-kind="reject"]{border-color:#b42336;color:#b42336}
+.messages{padding-top:4px;border-top:1px solid rgba(105,9,47,.08)}
+.reply{padding:16px;border:1px solid rgba(105,9,47,.1);border-radius:14px;background:rgba(105,9,47,.025)}
+@media(max-width:1180px){.shell{grid-template-columns:minmax(260px,300px) minmax(0,1fr)}.statusMenu{grid-column:1/-1;grid-row:1;position:sticky}.list{grid-column:1;grid-row:2}.detail{grid-column:2;grid-row:2}.rmaAdminGrid{grid-template-columns:1fr 1fr}.statusMenu nav{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.statusMenu,.list,.detail{grid-column:1}.statusMenu{grid-row:1;position:static}.list{grid-row:2;position:static;max-height:380px;min-height:0}.detail{grid-row:3}.statusMenu nav{grid-template-columns:repeat(2,minmax(0,1fr))}.rmaAdminGrid,.rmaMeta{grid-template-columns:1fr}.simpleStatusControl label{grid-template-columns:1fr}.rmaProducts>div{grid-template-columns:1fr}.rmaProducts label{grid-template-columns:auto minmax(90px,120px)}}
+
+/* V1.0.6 — RMA financial clarity and workflow filters */
+.statusMenu nav{grid-template-columns:repeat(6,minmax(0,1fr))}
+.rmaStatusFilters{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;padding:0 8px 8px;border-top:1px solid rgba(105,9,47,.08)}
+.rmaStatusFilters button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:8px 10px;border:1px solid rgba(105,9,47,.12);border-radius:10px;background:#fff;color:#4a2433;font-size:11px;font-weight:850;cursor:pointer}
+.rmaStatusFilters button[data-active=true]{background:rgba(202,153,65,.18);border-color:#ca9941;color:var(--brand-primary)}
+.rmaStatusFilters button b{display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:rgba(105,9,47,.08);font-size:10px}
+.refundSummary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:12px;border:1px solid rgba(202,153,65,.3);border-radius:12px;background:rgba(202,153,65,.08)}
+.refundSummary p{display:grid;gap:4px;margin:0;padding:10px 12px;border-radius:10px;background:#fff}
+.refundSummary span{font-size:10px;color:#8f727d;font-weight:800}
+.refundSummary strong{font-size:13px;color:#4a2433}
+.rmaAdminGrid label>small{display:block;line-height:1.35;color:#8f727d;font-size:9px;font-weight:700}
+.resetRefund{display:inline;margin-left:6px;padding:0;border:0;background:transparent;color:var(--brand-primary);font-size:9px;font-weight:900;text-decoration:underline;cursor:pointer}
+@media(max-width:1180px){.statusMenu nav{grid-template-columns:repeat(3,minmax(0,1fr))}.rmaStatusFilters{grid-template-columns:repeat(3,minmax(0,1fr))}.refundSummary{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.statusMenu nav,.rmaStatusFilters{grid-template-columns:repeat(2,minmax(0,1fr))}.refundSummary{grid-template-columns:1fr}}
+
+/* V1.0.7 — compact RMA workspace and perfectly aligned decision controls */
+.detail{max-width:none}
+.rmaCard{padding:18px;gap:16px;border-radius:16px}
+.rmaTitle{padding-bottom:2px}
+.rmaMeta,.refundSummary{gap:8px}
+.rmaMeta p,.refundSummary p{min-height:62px;border-radius:10px}
+.rmaProducts{gap:10px}
+.rmaProducts h4{font-size:15px}
+.rmaProducts>div{min-height:64px;padding:12px 14px;border-radius:12px}
+.rmaProducts>div>span strong{font-size:14px}
+.rmaProducts>div>span small{line-height:1.35}
+
+.ticket[data-unread=true]{
+  border-color:rgba(215,166,41,.42);
+  background:linear-gradient(105deg,#fff7cf,#fffdfb 72%);
+  box-shadow:inset 5px 0 #d7a629,0 0 24px rgba(215,166,41,.26)
+}
+.ticket[data-unread=true][data-active=true]{box-shadow:inset 5px 0 var(--brand-primary),0 0 24px rgba(215,166,41,.32)}
+.unreadBadge{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:8px;padding:0 7px;border-radius:999px;background:var(--brand-primary);color:#ffe68f;font:950 10px/1 Arial,sans-serif;vertical-align:middle}
+
+.rmaAdminGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.rmaAdminGrid label{display:grid;grid-template-rows:34px 48px minmax(30px,auto);gap:7px;min-width:0;margin:0;align-content:start}
+.fieldTitle{display:flex;align-items:flex-end;min-height:34px;line-height:1.15;color:#4a2433;font-size:11px;font-weight:900}
+.rmaAdminGrid input,.rmaAdminGrid select{box-sizing:border-box;width:100%;height:48px;min-height:48px;margin:0;padding:0 12px;border:1px solid rgba(105,9,47,.2);border-radius:11px;background:#fff;color:#24151b;font:inherit;line-height:normal}
+.rmaAdminGrid input:focus,.rmaAdminGrid select:focus{outline:2px solid rgba(202,153,65,.3);outline-offset:1px;border-color:#ca9941}
+.fieldHint{display:block;min-height:30px;margin:0;line-height:1.35;color:#8f727d;font-size:9px;font-weight:700}
+.refundField input{font-weight:900;font-variant-numeric:tabular-nums}
+.resetRefund{margin-left:5px;white-space:nowrap}
+
+.rmaDecision{gap:7px;margin-top:0}
+.rmaDecision textarea{min-height:104px;border-radius:12px;line-height:1.45}
+.rmaSimpleActions{justify-content:flex-end;gap:8px;padding-top:0}
+.rmaSimpleActions button{min-height:44px;padding:0 18px}
+
+/* More usable desktop balance: slightly narrower queue, more room for RMA data. */
+@media(min-width:1181px){
+  .shell{grid-template-columns:minmax(265px,300px) minmax(0,1fr);gap:14px}
+  .detail{padding:20px 22px}
+  .statusMenu nav{gap:6px;padding:7px}
+  .statusMenu button{min-height:44px}
+  .rmaStatusFilters{gap:6px;padding:0 7px 7px}
+  .rmaStatusFilters button{min-height:40px;padding:6px 8px}
+}
+@media(max-width:1180px){
+  .rmaAdminGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  .rmaAdminGrid{grid-template-columns:1fr}
+  .rmaAdminGrid label{grid-template-rows:auto 48px auto}
+  .fieldTitle{min-height:0}
+}
+
+/* V1.0.19 — support queue ticket layout: prevent status/reference overlap */
+.ticket{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:7px;
+  padding:15px 16px 16px;
+  min-width:0;
+}
+.ticketTopRow{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:start;
+  gap:10px;
+  min-width:0;
+}
+.ticketReference{
+  min-width:0;
+  overflow-wrap:anywhere;
+  line-height:1.2;
+}
+.ticketStatus{
+  max-width:132px;
+  color:#8f6877;
+  font-size:9px;
+  font-weight:700;
+  line-height:1.25;
+  text-align:right;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+.ticketTopic{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-width:0;
+  font-weight:800;
+  line-height:1.25;
+  overflow-wrap:anywhere;
+}
+.ticketMeta{
+  display:block;
+  min-width:0;
+  color:#8f727d;
+  line-height:1.25;
+  overflow-wrap:anywhere;
+}
+/* Neutralize the old absolutely-positioned status rule for any legacy render. */
+.ticket em{position:static;right:auto;top:auto;max-width:none;text-align:left}
+
+@media(max-width:1180px){
+  .ticketStatus{max-width:118px}
+}
+@media(max-width:900px){
+  .ticketTopRow{grid-template-columns:minmax(0,1fr) minmax(90px,auto)}
+}
+@media(max-width:520px){
+  .ticketTopRow{grid-template-columns:1fr}
+  .ticketStatus{max-width:none;text-align:left}
+}
+
+/* V1.0.41 — support conversation pagination, max 10 tickets per page */
+.pagination{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 14px;border-top:1px solid rgba(105,9,47,.08);background:#fffdfb;position:sticky;bottom:0;z-index:2}.pagination button{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(105,9,47,.16);border-radius:10px;background:#fff;color:var(--brand-primary);font-size:20px;font-weight:900;cursor:pointer}.pagination button:disabled{opacity:.35;cursor:not-allowed}.pagination span{min-width:64px;text-align:center;color:#4a2433;font-size:12px;font-weight:900}
