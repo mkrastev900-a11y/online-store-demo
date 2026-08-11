@@ -62,7 +62,12 @@ export async function POST(request: Request) {
       email: user.email,
       name: user.name,
     });
-    await recordSuccessfulLogin(user.id);
+    try {
+      await recordSuccessfulLogin(user.id);
+    } catch (error) {
+      // Login must not fail only because the secondary lastLoginAt audit write failed.
+      console.error("Login lastLoginAt update failed:", error);
+    }
 
     const destination = user.role === "ADMIN" || user.role === "SUPER_ADMIN" ? "/" : "/account";
     const response = isNativeForm
@@ -84,7 +89,8 @@ export async function POST(request: Request) {
     }
 
     return response;
-  } catch {
+  } catch (error) {
+    console.error("Login request failed:", error);
     return NextResponse.json(
       { error: "Входът не беше завършен." },
       { status: 500 },
