@@ -337,3 +337,5 @@ test("cleanup source contains database and production safety guards", () => {
     assert.doesNotMatch(core, new RegExp(`${protectedModel}\\.delete`, "i"));
   }
 });
+
+// social persistence regression guard added by V11

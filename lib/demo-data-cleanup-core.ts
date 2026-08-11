@@ -43,6 +43,12 @@ export type DemoCleanupTransactionResult = {
 
 const STOCK_DECREMENTING_STATUSES = new Set(["CONFIRMED", "SHIPPED", "DELIVERED"]);
 
+// PERSISTENT DEMO CONFIGURATION:
+// SiteDesignSettings is intentionally NEVER touched by the 30-minute demo cleanup.
+// It stores the storefront design and the social-network configuration
+// (facebookUrl / instagramUrl / tiktokUrl plus enabled flags in designTokensJson).
+// These values remain until an administrator changes them manually.
+
 export function calculateStockRestorePlan(orders: DemoOrderForCleanup[]): StockRestoreItem[] {
   const plan = new Map<number, StockRestoreItem>();
 
