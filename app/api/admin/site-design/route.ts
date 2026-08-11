@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { requireAnyAdminPermissionApi } from "@/lib/admin-permissions";
 import { prisma } from "@/lib/prisma";
-import { DEFAULT_SITE_DESIGN, getSiteDesign } from "@/lib/site-design";
+import { DEFAULT_SITE_DESIGN, getSiteDesign, preservePersistentSocialTokens } from "@/lib/site-design";
 import { writeAuditLog } from "@/lib/audit";
 
 import { isSameOriginRequest } from "@/lib/request-security";
 
-const fields = Object.keys(DEFAULT_SITE_DESIGN).filter((key) => key !== "id");
+const fields = Object.keys(DEFAULT_SITE_DESIGN).filter((key) => !["id", "facebookUrl", "instagramUrl", "tiktokUrl"].includes(key));
 const booleanFields = new Set([
   "showHero",
   "showBenefits",
@@ -47,9 +47,18 @@ export async function PUT(req: Request) {
 
   const body = await req.json();
   const data: Record<string, unknown> = { updatedById: admin.id };
+  const current = await prisma.siteDesignSettings.findUnique({
+    where: { id: 1 },
+    select: { designTokensJson: true },
+  });
 
   for (const key of fields) {
-    if (key in body) data[key] = normalizeField(key, body[key]);
+    if (!(key in body)) continue;
+    if (key === "designTokensJson") {
+      data[key] = preservePersistentSocialTokens(current?.designTokensJson, String(body[key] ?? "{}"));
+    } else {
+      data[key] = normalizeField(key, body[key]);
+    }
   }
 
   const saved = await prisma.siteDesignSettings.upsert({

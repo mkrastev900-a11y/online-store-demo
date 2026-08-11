@@ -70,6 +70,27 @@ export function serializeDesignTokenOverrides(tokens: DesignTokenOverrides) {
   return JSON.stringify(tokens);
 }
 
+const PERSISTENT_SOCIAL_TOKEN_KEYS = [
+  "social.facebook.enabled",
+  "social.instagram.enabled",
+  "social.tiktok.enabled",
+] as const;
+
+/**
+ * Social-network visibility is managed by /admin/social-networks and must not be
+ * overwritten by stale Visual Editor/theme snapshots. Keep the values already
+ * stored in SiteDesignSettings while allowing every other design token to update.
+ */
+export function preservePersistentSocialTokens(currentJson: string | null | undefined, incomingJson: string | null | undefined) {
+  const current = parseDesignTokenOverrides(currentJson);
+  const incoming = parseDesignTokenOverrides(incomingJson);
+  for (const key of PERSISTENT_SOCIAL_TOKEN_KEYS) {
+    if (typeof current[key] === "boolean") incoming[key] = current[key];
+    else delete incoming[key];
+  }
+  return serializeDesignTokenOverrides(incoming);
+}
+
 export function getPrimaryContactPhone(design: Pick<SiteDesign, "designTokensJson">) {
   const tokens = parseDesignTokenOverrides(design.designTokensJson);
   const value = String(tokens["contact.primaryPhone"] ?? "").trim();

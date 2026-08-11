@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars -- Existing behavior is intentional; warning-only patterns are retained to avoid release-risk refactors. */
 import { prisma } from "@/lib/prisma";
-import { DEFAULT_SITE_DESIGN, type SiteDesign } from "@/lib/site-design";
+import { DEFAULT_SITE_DESIGN, preservePersistentSocialTokens, type SiteDesign } from "@/lib/site-design";
 
 export type DesignThemeSummary = {
   id: number;
@@ -23,8 +23,22 @@ function snapshotSignature(value: unknown) {
 }
 
 async function writeActiveDesign(tx: typeof prisma, snapshot: SiteDesign, actorId: number | null) {
+  const current = await tx.siteDesignSettings.findUnique({
+    where: { id: 1 },
+    select: { facebookUrl: true, instagramUrl: true, tiktokUrl: true, designTokensJson: true },
+  });
   const data: any = { ...snapshot };
   delete data.id;
+
+  // Social-network configuration belongs to the dedicated Social Networks page.
+  // Theme snapshots can be old, so never let Apply/Publish/Rollback erase it.
+  if (current) {
+    data.facebookUrl = current.facebookUrl;
+    data.instagramUrl = current.instagramUrl;
+    data.tiktokUrl = current.tiktokUrl;
+    data.designTokensJson = preservePersistentSocialTokens(current.designTokensJson, data.designTokensJson);
+  }
+
   await tx.siteDesignSettings.upsert({
     where: { id: 1 },
     create: { id: 1, ...data, updatedById: actorId ?? undefined },
