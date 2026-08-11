@@ -1,6 +1,7 @@
 import os from "node:os";
 import packageJson from "@/package.json";
 import { prisma } from "@/lib/prisma";
+import { getCloudinary } from "@/lib/cloudinary";
 
 export type HealthStatus = "healthy" | "warning" | "error";
 
@@ -49,7 +50,7 @@ async function checkDatabase(): Promise<HealthCheck> {
     const latencyMs = Math.round(performance.now() - startedAt);
     return {
       id: "database",
-      name: "Local SQLite",
+      name: process.env.DATABASE_URL?.startsWith("postgres") ? "Neon PostgreSQL" : "Local SQLite",
       category: "database",
       status: latencyMs > 1200 ? "warning" : "healthy",
       summary: latencyMs > 1200 ? "Свързана, но бавна" : "Свързана",
@@ -59,7 +60,7 @@ async function checkDatabase(): Promise<HealthCheck> {
   } catch (error) {
     return {
       id: "database",
-      name: "Local SQLite",
+      name: process.env.DATABASE_URL?.startsWith("postgres") ? "Neon PostgreSQL" : "Local SQLite",
       category: "database",
       status: "error",
       summary: "Няма връзка",
@@ -78,18 +79,36 @@ async function checkCloudinary(): Promise<HealthCheck> {
 
   const startedAt = performance.now();
   try {
-    const auth = Buffer.from(`${apiKey}:${apiSecret}`).toString("base64");
-    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/resources/image?max_results=1`, {
-      headers: { Authorization: `Basic ${auth}` },
-      cache: "no-store",
-      signal: timeoutSignal(4500),
-    });
+    // Use the same official Cloudinary SDK configuration as the actual upload/delete routes.
+    // This avoids a health-check-only authentication path that can disagree with runtime behavior.
+    const ping = getCloudinary().api.ping();
+    await Promise.race([
+      ping,
+      new Promise((_, reject) => setTimeout(() => reject(new Error("Cloudinary timeout")), 4500)),
+    ]);
     const latencyMs = Math.round(performance.now() - startedAt);
-    return response.ok
-      ? { id: "cloudinary", name: "Cloudinary", category: "service", status: "healthy", summary: "API работи", detail: `Успешна проверка за ${latencyMs} ms.`, latencyMs }
-      : { id: "cloudinary", name: "Cloudinary", category: "service", status: response.status >= 500 ? "error" : "warning", summary: `API отговор ${response.status}`, detail: "Провери Cloudinary идентификаторите и ограниченията на акаунта.", latencyMs };
-  } catch {
-    return { id: "cloudinary", name: "Cloudinary", category: "service", status: "warning", summary: "Няма потвърден отговор", detail: "Конфигурацията е налична, но live проверката не завърши навреме." };
+    return {
+      id: "cloudinary",
+      name: "Cloudinary",
+      category: "service",
+      status: "healthy",
+      summary: "API работи",
+      detail: `Cloudinary SDK потвърди връзката за ${latencyMs} ms.`,
+      latencyMs,
+    };
+  } catch (error) {
+    const latencyMs = Math.round(performance.now() - startedAt);
+    const message = error instanceof Error ? error.message : "Cloudinary authentication failed";
+    const status = typeof error === "object" && error && "http_code" in error ? Number((error as { http_code?: unknown }).http_code) : undefined;
+    return {
+      id: "cloudinary",
+      name: "Cloudinary",
+      category: "service",
+      status: status && status >= 500 ? "error" : "warning",
+      summary: status ? `API отговор ${status}` : "API проверката не успя",
+      detail: message.slice(0, 220),
+      latencyMs,
+    };
   }
 }
 

@@ -1,7 +1,15 @@
 import { v2 as cloudinary } from "cloudinary";
 
 function required(name: string) {
-  const value = process.env[name]?.trim();
+  let value = process.env[name]?.trim();
+  if (!value) throw new Error(`Липсва Cloudinary настройка: ${name}`);
+
+  // Be tolerant of values pasted into Vercel as KEY=value or wrapped in quotes.
+  const prefix = `${name}=`;
+  if (value.startsWith(prefix)) value = value.slice(prefix.length).trim();
+  if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    value = value.slice(1, -1).trim();
+  }
   if (!value) throw new Error(`Липсва Cloudinary настройка: ${name}`);
   return value;
 }
