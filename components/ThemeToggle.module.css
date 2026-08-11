@@ -30,7 +30,7 @@
   padding: 0 7px;
   border: 1px solid rgba(241, 209, 123, .46);
   border-radius: 999px;
-  background: #4a0015;
+  background: color-mix(in srgb, var(--header-utility-bg, var(--brand-primary, #69092f)) 84%, black 16%);
   color: rgba(255, 244, 220, .68);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
   font-size: 12px;
@@ -38,7 +38,7 @@
 }
 .toggle:hover .track {
   border-color: rgba(241, 209, 123, .82);
-  background: #570019;
+  background: color-mix(in srgb, var(--header-utility-bg, var(--brand-primary, #69092f)) 74%, black 26%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 0 0 3px rgba(241,209,123,.06);
 }
 .thumb {
